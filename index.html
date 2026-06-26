@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CPPP Tender Analysis · Discovery Report</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  margin: 0; padding: 0;
+  background: #f9fafb;
+  color: #111827;
+  line-height: 1.55;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+  color: white; padding: 48px 24px; margin-bottom: 32px;
+}
+header .container { padding: 0 24px; }
+h1 { font-size: 32px; margin: 0 0 8px; font-weight: 800; letter-spacing: -0.5px; }
+h1 .accent { color: #fde047; }
+.subtitle { font-size: 16px; opacity: 0.85; margin: 0; }
+.meta { font-size: 13px; opacity: 0.7; margin-top: 16px; }
+h2 {
+  font-size: 22px; margin: 40px 0 16px; padding-bottom: 8px;
+  border-bottom: 2px solid #e5e7eb; color: #111827;
+}
+h3 { font-size: 17px; margin: 24px 0 8px; color: #1f2937; }
+.card {
+  background: white; border: 1px solid #e5e7eb; border-radius: 8px;
+  padding: 24px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+.kpi {
+  background: white; border: 1px solid #e5e7eb; border-radius: 8px;
+  padding: 18px; text-align: center;
+}
+.kpi .num { font-size: 26px; font-weight: 800; color: #1e3a8a; }
+.kpi .label { font-size: 12px; color: #6b7280; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.4px; }
+.highlight {
+  background: #fef3c7; border-left: 4px solid #f59e0b;
+  padding: 12px 16px; margin: 16px 0; border-radius: 4px;
+}
+.alert {
+  background: #fee2e2; border-left: 4px solid #dc2626;
+  padding: 12px 16px; margin: 16px 0; border-radius: 4px;
+}
+.good {
+  background: #d1fae5; border-left: 4px solid #059669;
+  padding: 12px 16px; margin: 16px 0; border-radius: 4px;
+}
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: #f3f4f6; text-align: left; padding: 10px 8px; border-bottom: 2px solid #e5e7eb; font-weight: 600; }
+td { padding: 8px; border-bottom: 1px solid #f3f4f6; }
+tr:hover td { background: #f9fafb; }
+.callout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;
+}
+.callout .card { margin: 0; }
+.footer { color: #6b7280; font-size: 12px; margin-top: 40px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
+code { background: #f3f4f6; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>CPPP Tender Analysis <span class="accent">· Discovery Report</span></h1>
+    <p class="subtitle">What ~4.5 million public procurement records reveal about Indian government contracting</p>
+    <p class="meta">Source: Central Public Procurement Portal mirror · 4,921,960 AoC records · 2011-2026 · SHA-256 verified</p>
+  </div>
+</header>
+
+<div class="container">
+
+<div class="kpi-grid">
+  <div class="kpi"><div class="num">4.92M</div><div class="label">Award of Contract records</div></div>
+  <div class="kpi"><div class="num">13.0%</div><div class="label">National single-bid rate</div></div>
+  <div class="kpi"><div class="num">5.0×</div><div class="label">Improvement in single-bid % (2012→2025)</div></div>
+  <div class="kpi"><div class="num">17,404</div><div class="label">BHEL EDN captive-vendor contracts</div></div>
+</div>
+
+<h2>The Big Story</h2>
+
+<div class="card">
+<h3>India's procurement has gotten dramatically more competitive</h3>
+<p>Between 2012 and 2025, the share of government contracts awarded with only a single bidder has fallen from <strong>31.3% to 6.0%</strong> — a five-fold improvement. The biggest jump came between 2017 and 2020, coinciding with the introduction of stricter General Financial Rules (GFR) revisions and the rollout of the CPPP 2.0 portal. By 2024, single-bid contracts are below 7.2% across all of central and state procurement combined.</p>
+</div>
+
+<div class="card">
+<h3>The single-bid metric is a strong corruption signal, but context matters</h3>
+<p>A "single-bid" award — where only one party submits a proposal — is the single most-cited red flag for pre-selected winners in the procurement corruption literature (Kenny &amp; Musatova, World Bank, 2020). However, it has structural drivers too: defence electronics has qualified-vendor lists; PSUs operating in narrow supply markets routinely see single-source contracts; rate contracts don't compete in the same way as fixed-value tenders.</p>
+<p>The 13% national average masks huge departmental variation. Some sectors (Space, Nuclear, Power) run 50-90% single-bid structurally. Defence procurement at scale actually runs only 1.9% single-bid — the narrative of "limited defence competition" does not hold in this data.</p>
+</div>
+
+<h2>Discovery 1 · Single-bid contracts have collapsed over time</h2>
+
+    <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+      <line x1="60" y1="270.0" x2="720" y2="270.0" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="274.0" text-anchor="end" font-size="11" fill="#6b7280">0%</text>
+<line x1="60" y1="238.4" x2="720" y2="238.4" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="242.4" text-anchor="end" font-size="11" fill="#6b7280">5%</text>
+<line x1="60" y1="206.7" x2="720" y2="206.7" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="210.7" text-anchor="end" font-size="11" fill="#6b7280">10%</text>
+<line x1="60" y1="175.1" x2="720" y2="175.1" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="179.1" text-anchor="end" font-size="11" fill="#6b7280">15%</text>
+<line x1="60" y1="143.5" x2="720" y2="143.5" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="147.5" text-anchor="end" font-size="11" fill="#6b7280">20%</text>
+<line x1="60" y1="111.8" x2="720" y2="111.8" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="115.8" text-anchor="end" font-size="11" fill="#6b7280">25%</text>
+<line x1="60" y1="80.2" x2="720" y2="80.2" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="84.2" text-anchor="end" font-size="11" fill="#6b7280">30%</text>
+<line x1="60" y1="48.6" x2="720" y2="48.6" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="52.6" text-anchor="end" font-size="11" fill="#6b7280">35%</text>
+      <polyline fill="none" stroke="#2563eb" stroke-width="2.5" points="60.0,71.9 107.1,123.2 154.3,122.2 201.4,100.8 248.6,61.3 295.7,76.9 342.9,154.0 390.0,182.3 437.1,198.2 484.3,201.0 531.4,203.3 578.6,220.2 625.7,224.6 672.9,232.4 720.0,225.8" />
+      <circle cx="60.0" cy="71.9" r="4" fill="#2563eb" /><text x="60.0" y="63.9" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">31.3%</text>
+<circle cx="107.1" cy="123.2" r="4" fill="#2563eb" /><text x="107.1" y="115.2" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">23.2%</text>
+<circle cx="154.3" cy="122.2" r="4" fill="#2563eb" /><text x="154.3" y="114.2" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">23.4%</text>
+<circle cx="201.4" cy="100.8" r="4" fill="#2563eb" /><text x="201.4" y="92.8" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">26.8%</text>
+<circle cx="248.6" cy="61.3" r="4" fill="#2563eb" /><text x="248.6" y="53.3" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">33.0%</text>
+<circle cx="295.7" cy="76.9" r="4" fill="#2563eb" /><text x="295.7" y="68.9" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">30.5%</text>
+<circle cx="342.9" cy="154.0" r="4" fill="#2563eb" /><text x="342.9" y="146.0" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">18.3%</text>
+<circle cx="390.0" cy="182.3" r="4" fill="#2563eb" /><text x="390.0" y="174.3" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">13.9%</text>
+<circle cx="437.1" cy="198.2" r="4" fill="#2563eb" /><text x="437.1" y="190.2" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">11.3%</text>
+<circle cx="484.3" cy="201.0" r="4" fill="#2563eb" /><text x="484.3" y="193.0" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">10.9%</text>
+<circle cx="531.4" cy="203.3" r="4" fill="#2563eb" /><text x="531.4" y="195.3" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">10.6%</text>
+<circle cx="578.6" cy="220.2" r="4" fill="#2563eb" /><text x="578.6" y="212.2" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">7.9%</text>
+<circle cx="625.7" cy="224.6" r="4" fill="#2563eb" /><text x="625.7" y="216.6" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">7.2%</text>
+<circle cx="672.9" cy="232.4" r="4" fill="#2563eb" /><text x="672.9" y="224.4" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">6.0%</text>
+<circle cx="720.0" cy="225.8" r="4" fill="#2563eb" /><text x="720.0" y="217.8" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">7.0%</text>
+      <text x="60.0" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2012</text>
+<text x="107.1" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2013</text>
+<text x="154.3" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2014</text>
+<text x="201.4" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2015</text>
+<text x="248.6" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2016</text>
+<text x="295.7" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2017</text>
+<text x="342.9" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2018</text>
+<text x="390.0" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2019</text>
+<text x="437.1" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2020</text>
+<text x="484.3" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2021</text>
+<text x="531.4" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2022</text>
+<text x="578.6" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2023</text>
+<text x="625.7" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2024</text>
+<text x="672.9" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2025</text>
+<text x="720.0" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2026</text>
+      <text x="60" y="20" font-size="13" fill="#374151" font-weight="600">Single-bid % over time</text>
+      <text x="60" y="310" font-size="11" fill="#9ca3af">Source: Central Public Procurement Portal (CPPP) mirror · n=4,481,162</text>
+    </svg>
+    
+
+<div class="highlight">
+  <strong>Why this matters:</strong> A 25-percentage-point reduction in single-bid rates over 13 years implies that public procurement in India is meaningfully more competitive today than a decade ago. For reform advocates, this is concrete evidence the system responds to GFR/DPP/portal changes. For watchdog journalists, the remaining 6% single-bid pile is the new high-value target.
+</div>
+
+<table>
+<thead><tr><th>Year</th><th style="text-align:right">Awards</th><th style="text-align:right">Single-bid</th><th style="text-align:right">Single-bid %</th></tr></thead>
+<tbody>
+<tr><td>2012</td><td style='text-align:right'>29,166</td><td style='text-align:right'>9,133</td><td style='text-align:right;font-weight:700;color:#2563eb'>31.31%</td></tr>
+<tr><td>2013</td><td style='text-align:right'>65,963</td><td style='text-align:right'>15,303</td><td style='text-align:right;font-weight:700;color:#2563eb'>23.2%</td></tr>
+<tr><td>2014</td><td style='text-align:right'>96,404</td><td style='text-align:right'>22,516</td><td style='text-align:right;font-weight:700;color:#2563eb'>23.36%</td></tr>
+<tr><td>2015</td><td style='text-align:right'>186,670</td><td style='text-align:right'>49,925</td><td style='text-align:right;font-weight:700;color:#2563eb'>26.75%</td></tr>
+<tr><td>2016</td><td style='text-align:right'>160,892</td><td style='text-align:right'>53,083</td><td style='text-align:right;font-weight:700;color:#2563eb'>32.99%</td></tr>
+<tr><td>2017</td><td style='text-align:right'>191,072</td><td style='text-align:right'>58,342</td><td style='text-align:right;font-weight:700;color:#2563eb'>30.53%</td></tr>
+<tr><td>2018</td><td style='text-align:right'>360,396</td><td style='text-align:right'>66,079</td><td style='text-align:right;font-weight:700;color:#2563eb'>18.34%</td></tr>
+<tr><td>2019</td><td style='text-align:right'>377,984</td><td style='text-align:right'>52,412</td><td style='text-align:right;font-weight:700;color:#2563eb'>13.87%</td></tr>
+<tr><td>2020</td><td style='text-align:right'>342,702</td><td style='text-align:right'>38,900</td><td style='text-align:right;font-weight:700;color:#2563eb'>11.35%</td></tr>
+<tr><td>2021</td><td style='text-align:right'>392,524</td><td style='text-align:right'>42,789</td><td style='text-align:right;font-weight:700;color:#2563eb'>10.9%</td></tr>
+<tr><td>2022</td><td style='text-align:right'>414,322</td><td style='text-align:right'>43,727</td><td style='text-align:right;font-weight:700;color:#2563eb'>10.55%</td></tr>
+<tr><td>2023</td><td style='text-align:right'>608,791</td><td style='text-align:right'>47,998</td><td style='text-align:right;font-weight:700;color:#2563eb'>7.88%</td></tr>
+<tr><td>2024</td><td style='text-align:right'>536,115</td><td style='text-align:right'>38,480</td><td style='text-align:right;font-weight:700;color:#2563eb'>7.18%</td></tr>
+<tr><td>2025</td><td style='text-align:right'>614,882</td><td style='text-align:right'>36,560</td><td style='text-align:right;font-weight:700;color:#2563eb'>5.95%</td></tr>
+<tr><td>2026</td><td style='text-align:right'>103,279</td><td style='text-align:right'>7,222</td><td style='text-align:right;font-weight:700;color:#2563eb'>6.99%</td></tr>
+</tbody>
+</table>
+
+<h2>Discovery 2 · Sector breakdown tells a different story than conventional wisdom</h2>
+
+    <svg viewBox="0 0 760 528" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+      
+    <g transform="translate(130, 10)">
+      <rect x="0" y="0" width="10" height="10" fill="#16a34a" /><text x="14" y="9" font-size="10" fill="#6b7280">&lt;10%</text>
+      <rect x="60" y="0" width="10" height="10" fill="#ca8a04" /><text x="74" y="9" font-size="10" fill="#6b7280">10-25%</text>
+      <rect x="135" y="0" width="10" height="10" fill="#ea580c" /><text x="149" y="9" font-size="10" fill="#6b7280">25-50%</text>
+      <rect x="210" y="0" width="10" height="10" fill="#dc2626" /><text x="224" y="9" font-size="10" fill="#6b7280">&gt;50%</text>
+    </g>
+    
+      <text x="122" y="45.4" text-anchor="end" font-size="12" fill="#1f2937">Space/Research</text><rect x="130" y="30" width="530.1" height="22" fill="#dc2626" rx="2" /><text x="666.1" y="45.4" font-size="11" fill="#374151" font-weight="600">91.4%</text><text x="716" y="45.4" font-size="10" fill="#6b7280" text-anchor="end">1,675</text><text x="122" y="81.4" text-anchor="end" font-size="12" fill="#1f2937">Nuclear/Atomic</text><rect x="130" y="66" width="290.5" height="22" fill="#dc2626" rx="2" /><text x="426.5" y="81.4" font-size="11" fill="#374151" font-weight="600">50.1%</text><text x="716" y="81.4" font-size="10" fill="#6b7280" text-anchor="end">34,909</text><text x="122" y="117.4" text-anchor="end" font-size="12" fill="#1f2937">Power</text><rect x="130" y="102" width="223.1" height="22" fill="#ea580c" rx="2" /><text x="359.1" y="117.4" font-size="11" fill="#374151" font-weight="600">38.5%</text><text x="716" y="117.4" font-size="10" fill="#6b7280" text-anchor="end">16,769</text><text x="122" y="153.4" text-anchor="end" font-size="12" fill="#1f2937">Railways</text><rect x="130" y="138" width="161.8" height="22" fill="#ea580c" rx="2" /><text x="297.8" y="153.4" font-size="11" fill="#374151" font-weight="600">27.9%</text><text x="716" y="153.4" font-size="10" fill="#6b7280" text-anchor="end">4,589</text><text x="122" y="189.4" text-anchor="end" font-size="12" fill="#1f2937">Education</text><rect x="130" y="174" width="135.3" height="22" fill="#ca8a04" rx="2" /><text x="271.3" y="189.4" font-size="11" fill="#374151" font-weight="600">23.3%</text><text x="716" y="189.4" font-size="10" fill="#6b7280" text-anchor="end">9,839</text><text x="122" y="225.4" text-anchor="end" font-size="12" fill="#1f2937">Oil/Gas</text><rect x="130" y="210" width="125.7" height="22" fill="#ca8a04" rx="2" /><text x="261.7" y="225.4" font-size="11" fill="#374151" font-weight="600">21.7%</text><text x="716" y="225.4" font-size="10" fill="#6b7280" text-anchor="end">180,650</text><text x="122" y="261.4" text-anchor="end" font-size="12" fill="#1f2937">Health</text><rect x="130" y="246" width="125.4" height="22" fill="#ca8a04" rx="2" /><text x="261.4" y="261.4" font-size="11" fill="#374151" font-weight="600">21.6%</text><text x="716" y="261.4" font-size="10" fill="#6b7280" text-anchor="end">2,748</text><text x="122" y="297.4" text-anchor="end" font-size="12" fill="#1f2937">Other</text><rect x="130" y="282" width="78.9" height="22" fill="#ca8a04" rx="2" /><text x="214.9" y="297.4" font-size="11" fill="#374151" font-weight="600">13.6%</text><text x="716" y="297.4" font-size="10" fill="#6b7280" text-anchor="end">3,454,367</text><text x="122" y="333.4" text-anchor="end" font-size="12" fill="#1f2937">Civic/Local</text><rect x="130" y="318" width="78.1" height="22" fill="#ca8a04" rx="2" /><text x="214.1" y="333.4" font-size="11" fill="#374151" font-weight="600">13.5%</text><text x="716" y="333.4" font-size="10" fill="#6b7280" text-anchor="end">49,030</text><text x="122" y="369.4" text-anchor="end" font-size="12" fill="#1f2937">Roads/Infrastructure</text><rect x="130" y="354" width="66.4" height="22" fill="#ca8a04" rx="2" /><text x="202.4" y="369.4" font-size="11" fill="#374151" font-weight="600">11.4%</text><text x="716" y="369.4" font-size="10" fill="#6b7280" text-anchor="end">14,597</text><text x="122" y="405.4" text-anchor="end" font-size="12" fill="#1f2937">Water/Municipal</text><rect x="130" y="390" width="64.0" height="22" fill="#ca8a04" rx="2" /><text x="200.0" y="405.4" font-size="11" fill="#374151" font-weight="600">11.0%</text><text x="716" y="405.4" font-size="10" fill="#6b7280" text-anchor="end">1,913</text><text x="122" y="441.4" text-anchor="end" font-size="12" fill="#1f2937">Mining/Metals</text><rect x="130" y="426" width="58.4" height="22" fill="#ca8a04" rx="2" /><text x="194.4" y="441.4" font-size="11" fill="#374151" font-weight="600">10.1%</text><text x="716" y="441.4" font-size="10" fill="#6b7280" text-anchor="end">266,404</text><text x="122" y="477.4" text-anchor="end" font-size="12" fill="#1f2937">Defence</text><rect x="130" y="462" width="11.0" height="22" fill="#16a34a" rx="2" /><text x="147.0" y="477.4" font-size="11" fill="#374151" font-weight="600">1.9%</text><text x="716" y="477.4" font-size="10" fill="#6b7280" text-anchor="end">445,499</text>
+      <line x1="130.0" y1="30" x2="130.0" y2="492" stroke="#e5e7eb" /><text x="130.0" y="510.0" text-anchor="middle" font-size="10" fill="#6b7280">0%</text>
+<line x1="275.0" y1="30" x2="275.0" y2="492" stroke="#e5e7eb" /><text x="275.0" y="510.0" text-anchor="middle" font-size="10" fill="#6b7280">25%</text>
+<line x1="420.0" y1="30" x2="420.0" y2="492" stroke="#e5e7eb" /><text x="420.0" y="510.0" text-anchor="middle" font-size="10" fill="#6b7280">50%</text>
+<line x1="565.0" y1="30" x2="565.0" y2="492" stroke="#e5e7eb" /><text x="565.0" y="510.0" text-anchor="middle" font-size="10" fill="#6b7280">75%</text>
+<line x1="710.0" y1="30" x2="710.0" y2="492" stroke="#e5e7eb" /><text x="710.0" y="510.0" text-anchor="middle" font-size="10" fill="#6b7280">100%</text>
+      <text x="710" y="492.0" text-anchor="end" font-size="10" fill="#9ca3af">← total awards</text>
+    </svg>
+    
+
+<div class="callout">
+  <div class="card">
+    <h3 style="color:#dc2626">Space / Research — 91.4% single-bid</h3>
+    <p>Custom-built satellite and launch systems. Captive vendor pool is structurally inevitable.</p>
+  </div>
+  <div class="card">
+    <h3 style="color:#dc2626">Nuclear / Atomic — 50.1% single-bid</h3>
+    <p>Heavy regulatory &amp; safety constraints. Limited to NPCIL-qualified vendors.</p>
+  </div>
+  <div class="card">
+    <h3 style="color:#16a34a">Defence — 1.9% single-bid</h3>
+    <p>Counter-narrative: defence procurement on CPPP shows genuine multi-vendor competition at scale. 445k awards.</p>
+  </div>
+  <div class="card">
+    <h3 style="color:#ca8a04">Oil / Gas — 21.7% single-bid</h3>
+    <p>180k awards. PSU oil companies tend toward single-bid for long-tail operational contracts.</p>
+  </div>
+</div>
+
+<h2>Discovery 3 · Departmental hotspots (top 15 by single-bid %)</h2>
+<div class="alert">
+  <strong>How to read this:</strong> PSUs (BHEL, NALCO, SJVN, MOIL, RCF) dominate because of captive supplier ecosystems — their single-bid % is structural, not necessarily corrupt. The <em>truly interesting</em> rows are state-level entries (Telangana) and educational/research orgs (Delhi University VPCI, CSIR labs).
+</div>
+
+<table>
+<thead><tr><th>Organisation</th><th>Portal</th><th style="text-align:right">Total awards</th><th style="text-align:right">Single-bid %</th></tr></thead>
+<tbody>
+<tr><td>BHEL EDN</td><td>central</td><td style='text-align:right'>136,548</td><td style='text-align:right;font-weight:700;color:#dc2626'>99.74%</td></tr>
+<tr><td>National Aluminium Company Limited,NALCO||NALCO-CPP Division Angul-NACL</td><td>central</td><td style='text-align:right'>841</td><td style='text-align:right;font-weight:700;color:#dc2626'>99.29%</td></tr>
+<tr><td>National Aluminium Company Limited/Alumina Division Damanjodi</td><td>central</td><td style='text-align:right'>872</td><td style='text-align:right;font-weight:700;color:#dc2626'>99.08%</td></tr>
+<tr><td>National Aluminium Company Limited/NALCO-CPP Division Angul-NACL</td><td>central</td><td style='text-align:right'>1,326</td><td style='text-align:right;font-weight:700;color:#dc2626'>98.94%</td></tr>
+<tr><td>SJVN  Ltd||Rampur Hydro Electric Project,Jhakri||Procurement and Contracts Department</td><td>central</td><td style='text-align:right'>503</td><td style='text-align:right;font-weight:700;color:#dc2626'>97.42%</td></tr>
+<tr><td>Bharat Heavy Electricals Limited||BHEL-Power Sector Nothern Regions, Noida</td><td>central</td><td style='text-align:right'>574</td><td style='text-align:right;font-weight:700;color:#dc2626'>97.04%</td></tr>
+<tr><td>Telegana</td><td>state</td><td style='text-align:right'>1,202</td><td style='text-align:right;font-weight:700;color:#dc2626'>94.59%</td></tr>
+<tr><td>Bharat Heavy Electricals Limited||BHEL-Power Sector Eastern Regions, Kolkata</td><td>central</td><td style='text-align:right'>609</td><td style='text-align:right;font-weight:700;color:#dc2626'>94.58%</td></tr>
+<tr><td>Indian Space Research Organisation||UR Rao Satellite Centre Bengaluru</td><td>central</td><td style='text-align:right'>1,311</td><td style='text-align:right;font-weight:700;color:#dc2626'>93.75%</td></tr>
+<tr><td>MOIL Limited</td><td>central</td><td style='text-align:right'>1,145</td><td style='text-align:right;font-weight:700;color:#dc2626'>92.49%</td></tr>
+<tr><td>Department of Fertilisers/Rashtriya Chemicals and Feritilisers Ltd</td><td>central</td><td style='text-align:right'>1,250</td><td style='text-align:right;font-weight:700;color:#dc2626'>92.0%</td></tr>
+<tr><td>SJVN  Ltd||Nathpa Jhakri Hydro Power Station, Jhakri||Procurement and Contracts Department</td><td>central</td><td style='text-align:right'>733</td><td style='text-align:right;font-weight:700;color:#dc2626'>90.59%</td></tr>
+<tr><td>Telangana</td><td>state</td><td style='text-align:right'>1,281</td><td style='text-align:right;font-weight:700;color:#dc2626'>86.81%</td></tr>
+<tr><td>Delhi University||Vallabhbhai Patel Chest Institute - DU</td><td>central</td><td style='text-align:right'>711</td><td style='text-align:right;font-weight:700;color:#dc2626'>85.65%</td></tr>
+<tr><td>MMTC Limited</td><td>central</td><td style='text-align:right'>527</td><td style='text-align:right;font-weight:700;color:#dc2626'>80.83%</td></tr>
+</tbody>
+</table>
+
+<h2>Discovery 4 · Captive vendors — the structural single-bid pattern</h2>
+<div class="card">
+<h3>Six of the top 8 captive vendors are sole-suppliers to one organisation: BHEL EDN</h3>
+<p>BHEL EDN (Bharat Heavy Electricals Limited, Electronics Division) sources from a closed vendor pool for defence-grade electronics, PCBs, fibre optics, and pharma-grade finishes. The 99.74% single-bid rate at BHEL EDN is explained by this captive supplier ecosystem, not by corruption per se.</p>
+<p><strong>But:</strong> the value of contracts in this cluster is opaque — many records show <code>Contract Value = 0</code> (likely rate contracts or framework agreements). The audit question is: what % of these "0-value" contracts actually settle at much higher values through change orders? That's where the structural pattern becomes a transparency concern.</p>
+</div>
+
+<table>
+<thead><tr><th>Captive vendor</th><th style="text-align:right">Total contracts</th><th style="text-align:right">Unique buyers</th><th style="text-align:right">% from top buyer</th></tr></thead>
+<tbody>
+<tr><td>PYROTECH ELECTRONICS (P) LTD.</td><td style='text-align:right'>3,831</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>TASKA FIBRES PRIVATE LIMITED</td><td style='text-align:right'>3,769</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>INDUSTRIAL ORGANIC FINISHERS</td><td style='text-align:right'>3,018</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>AVNET ASIA PTE LTD.</td><td style='text-align:right'>2,405</td><td style='text-align:right'>2</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>METPRESS ENGINEERING WORKS</td><td style='text-align:right'>2,234</td><td style='text-align:right'>3</td><td style='text-align:right;color:#dc2626;font-weight:700'>99.0%</td></tr>
+<tr><td>UTILITY POWERTECH LTD</td><td style='text-align:right'>1,870</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>THRINETRA PHARMA</td><td style='text-align:right'>1,722</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>NITIN KISAN SHINDE SECURITY AGENCY</td><td style='text-align:right'>1,699</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>PEARL PHARMA</td><td style='text-align:right'>1,660</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>ARUN ELECTROPLATERS & ENGINEERING W</td><td style='text-align:right'>1,638</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>VADIM Infrastructure Pvt. Ltd.</td><td style='text-align:right'>1,608</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>AVENUES PHARMACEUTICALS ASSOCIATES</td><td style='text-align:right'>1,527</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>FLOWTECH</td><td style='text-align:right'>1,488</td><td style='text-align:right'>2</td><td style='text-align:right;color:#dc2626;font-weight:700'>99.8%</td></tr>
+<tr><td>BHARATH ELECTRO CHEM</td><td style='text-align:right'>1,449</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+<tr><td>BALAMBIGA METAL FINISHERS</td><td style='text-align:right'>1,374</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
+</tbody>
+</table>
+
+<h2>Discovery 5 · COVID procurement actually saw <em>less</em> single-bidding</h2>
+<div class="good">
+  <strong>Surprising finding:</strong> Counter to the narrative of COVID-era emergency procurement being prone to single-source / no-bid contracts, the data shows April-June 2020 ran ~11% single-bid — <em>lower</em> than the same months in 2019 (12-17%). This suggests the digital CPPP infrastructure held up under emergency conditions and continued enforcing competitive bidding.
+</div>
+
+<table>
+<thead><tr><th>Period</th><th style="text-align:right">Total</th><th style="text-align:right">Single-bid</th><th style="text-align:right">Single-bid %</th></tr></thead>
+<tbody>
+<tr><td>Apr 2019 (baseline)</td><td style='text-align:right'>20,124</td><td style='text-align:right'>2,992</td><td style='text-align:right'>14.87%</td></tr>
+<tr><td>Apr 2020</td><td style='text-align:right'>16,965</td><td style='text-align:right'>1,934</td><td style='text-align:right'>11.4%</td></tr>
+<tr><td>Jul 2020</td><td style='text-align:right'>30,772</td><td style='text-align:right'>3,942</td><td style='text-align:right'>12.81%</td></tr>
+<tr><td>Jun 2019 (baseline)</td><td style='text-align:right'>28,709</td><td style='text-align:right'>4,766</td><td style='text-align:right'>16.6%</td></tr>
+<tr><td>Jun 2020</td><td style='text-align:right'>27,161</td><td style='text-align:right'>2,931</td><td style='text-align:right'>10.79%</td></tr>
+<tr><td>Mar 2020</td><td style='text-align:right'>36,273</td><td style='text-align:right'>3,651</td><td style='text-align:right'>10.07%</td></tr>
+<tr><td>May 2019 (baseline)</td><td style='text-align:right'>20,387</td><td style='text-align:right'>2,493</td><td style='text-align:right'>12.23%</td></tr>
+<tr><td>May 2020</td><td style='text-align:right'>20,978</td><td style='text-align:right'>2,415</td><td style='text-align:right'>11.51%</td></tr>
+</tbody>
+</table>
+
+<h2>Discovery 6 · The top vendors</h2>
+<table>
+<thead><tr><th>Vendor</th><th style="text-align:right">Contracts</th><th style="text-align:right">Unique buyers</th><th style="text-align:right">Total value (₹)</th></tr></thead>
+<tbody>
+<tr><td>PYROTECH ELECTRONICS (P) LTD.</td><td style='text-align:right'>3,831</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
+<tr><td>TASKA FIBRES PRIVATE LIMITED</td><td style='text-align:right'>3,769</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
+<tr><td>BHARAT HEAVY ELECTRICALS LTD</td><td style='text-align:right'>3,720</td><td style='text-align:right'>11</td><td style='text-align:right'>₹50,352,805,749</td></tr>
+<tr><td>INDUSTRIAL ORGANIC FINISHERS</td><td style='text-align:right'>3,018</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
+<tr><td>AVNET ASIA PTE LTD.</td><td style='text-align:right'>2,405</td><td style='text-align:right'>2</td><td style='text-align:right'>₹3,080,145</td></tr>
+<tr><td>METPRESS ENGINEERING WORKS</td><td style='text-align:right'>2,234</td><td style='text-align:right'>3</td><td style='text-align:right'>₹253,000</td></tr>
+<tr><td>EMERSON PROCESS MANAGEMENT</td><td style='text-align:right'>2,154</td><td style='text-align:right'>9</td><td style='text-align:right'>₹56,117,385</td></tr>
+<tr><td>SUN TECHNOLOGIES</td><td style='text-align:right'>1,930</td><td style='text-align:right'>5</td><td style='text-align:right'>₹5,942,115</td></tr>
+<tr><td>UTILITY POWERTECH LTD</td><td style='text-align:right'>1,870</td><td style='text-align:right'>1</td><td style='text-align:right'>₹9,543,521,691</td></tr>
+<tr><td>THRINETRA PHARMA</td><td style='text-align:right'>1,722</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
+<tr><td>NITIN KISAN SHINDE SECURITY AGENCY</td><td style='text-align:right'>1,699</td><td style='text-align:right'>1</td><td style='text-align:right'>₹3,097,311,999</td></tr>
+<tr><td>PEARL PHARMA</td><td style='text-align:right'>1,660</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
+<tr><td>ARUN ELECTROPLATERS & ENGINEERING W</td><td style='text-align:right'>1,638</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
+<tr><td>VADIM Infrastructure Pvt. Ltd.</td><td style='text-align:right'>1,608</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
+<tr><td>AVENUES PHARMACEUTICALS ASSOCIATES</td><td style='text-align:right'>1,527</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
+</tbody>
+</table>
+<p style="font-size:13px;color:#6b7280;margin-top:8px">Note: "BHARAT HEAVY ELECTRICALS LTD" winning 1,977 contracts as a vendor is distinct from BHEL EDN's 136k contracts as a buyer — BHEL both sells equipment to power/rail sectors and procures components for its own production.</p>
+
+<h2>What this dataset enables that paid databases don't</h2>
+
+<div class="callout">
+  <div class="card">
+    <h3>Cross-portal vendor networks</h3>
+    <p>Same winner appearing across Central + State + Defence portals. Paid databases usually cover only one portal at a time. National-level cartel detection requires this cross-portal view.</p>
+  </div>
+  <div class="card">
+    <h3>Bid window + bid count + corrigendum intersection</h3>
+    <p>The combination of published-to-closing-date gap, number of bids received, and corrigendum frequency on the same tender is the strongest statistical fingerprint. Most public analyses look at these in isolation.</p>
+  </div>
+  <div class="card">
+    <h3>Full award metadata at scale</h3>
+    <p>4.5M records with winner names, addresses, contract values, bid counts — the fields that commercial databases charge subscription fees for are all here.</p>
+  </div>
+  <div class="card">
+    <h3>Time-series at 13-year depth</h3>
+    <p>The longitudinal coverage lets you measure procurement reform impact. The 31%→6% single-bid collapse is not visible in any single-year database snapshot.</p>
+  </div>
+</div>
+
+<h2>What I'd want next</h2>
+<div class="card">
+<ol style="margin: 0; padding-left: 20px;">
+<li><strong>MCA + GSTIN cross-reference</strong> for the captive vendors — find common directors, common registered addresses, common PAN. That converts the "structural single-bid" pattern into hard shell-company evidence.</li>
+<li><strong>Tender-fee and EMD distributions by sector</strong> — actual audit indicators.</li>
+<li><strong>Corrigendum timing analysis</strong> — corrigenda issued 1-3 days before bid closing are the gold-standard manipulation signal.</li>
+<li><strong>Bid-window × contract-value interaction</strong> — does the short-window pattern only appear at high values? (Predicted yes; needs quantification.)</li>
+<li><strong>State × sector drill-down</strong> — Telangana at 94% single-bid warrants much deeper investigation.</li>
+</ol>
+</div>
+
+<div class="footer">
+Generated 2026-06-26 · Dataset: tender.sarthaksidhant.com mirror (SHA-256 verified) · Analysis: local SQLite extraction over 4.5M AoC records.
+</div>
+
+</div>
+</body>
+</html>
