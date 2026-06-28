@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>CPPP Tender Analysis · Discovery Report</title>
+<title>CPPP Deep Analysis · Procurement Corruption Risk Indicators</title>
 <style>
 * { box-sizing: border-box; }
 body {
@@ -12,329 +12,472 @@ body {
   color: #111827;
   line-height: 1.55;
 }
-.container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 32px 24px 80px; }
 header {
-  background: linear-gradient(135deg, #1e3a8a 0%, #312e81 100%);
+  background: linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%);
   color: white; padding: 48px 24px; margin-bottom: 32px;
 }
 header .container { padding: 0 24px; }
-h1 { font-size: 32px; margin: 0 0 8px; font-weight: 800; letter-spacing: -0.5px; }
-h1 .accent { color: #fde047; }
-.subtitle { font-size: 16px; opacity: 0.85; margin: 0; }
+h1 { font-size: 36px; margin: 0 0 8px; font-weight: 800; letter-spacing: -0.5px; }
+h1 .accent { color: #fbbf24; }
+.subtitle { font-size: 17px; opacity: 0.9; margin: 0; }
 .meta { font-size: 13px; opacity: 0.7; margin-top: 16px; }
 h2 {
-  font-size: 22px; margin: 40px 0 16px; padding-bottom: 8px;
+  font-size: 24px; margin: 48px 0 16px; padding-bottom: 8px;
   border-bottom: 2px solid #e5e7eb; color: #111827;
 }
-h3 { font-size: 17px; margin: 24px 0 8px; color: #1f2937; }
+h2 .num {
+  display: inline-block; background: #7f1d1d; color: white;
+  border-radius: 50%; width: 32px; height: 32px;
+  font-size: 16px; line-height: 32px; text-align: center;
+  margin-right: 12px; vertical-align: middle;
+}
+h3 { font-size: 18px; margin: 24px 0 8px; color: #1f2937; }
 .card {
   background: white; border: 1px solid #e5e7eb; border-radius: 8px;
   padding: 24px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
-.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 20px 0; }
 .kpi {
   background: white; border: 1px solid #e5e7eb; border-radius: 8px;
   padding: 18px; text-align: center;
 }
-.kpi .num { font-size: 26px; font-weight: 800; color: #1e3a8a; }
-.kpi .label { font-size: 12px; color: #6b7280; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.4px; }
+.kpi .num { font-size: 28px; font-weight: 800; color: #7f1d1d; }
+.kpi .label { font-size: 11px; color: #6b7280; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.4px; line-height: 1.4; }
+.alert {
+  background: #fee2e2; border-left: 5px solid #dc2626;
+  padding: 16px 20px; margin: 16px 0; border-radius: 4px;
+}
 .highlight {
   background: #fef3c7; border-left: 4px solid #f59e0b;
-  padding: 12px 16px; margin: 16px 0; border-radius: 4px;
-}
-.alert {
-  background: #fee2e2; border-left: 4px solid #dc2626;
-  padding: 12px 16px; margin: 16px 0; border-radius: 4px;
+  padding: 14px 18px; margin: 16px 0; border-radius: 4px;
 }
 .good {
   background: #d1fae5; border-left: 4px solid #059669;
-  padding: 12px 16px; margin: 16px 0; border-radius: 4px;
+  padding: 14px 18px; margin: 16px 0; border-radius: 4px;
 }
-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 12px 0; }
 th { background: #f3f4f6; text-align: left; padding: 10px 8px; border-bottom: 2px solid #e5e7eb; font-weight: 600; }
 td { padding: 8px; border-bottom: 1px solid #f3f4f6; }
 tr:hover td { background: #f9fafb; }
-.callout {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;
+.method {
+  background: #f3f4f6; padding: 12px 16px; border-radius: 6px;
+  font-family: monospace; font-size: 12px; margin: 8px 0;
 }
-.callout .card { margin: 0; }
-.footer { color: #6b7280; font-size: 12px; margin-top: 40px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
-code { background: #f3f4f6; padding: 2px 6px; border-radius: 3px; font-size: 12px; }
+.toc { background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; margin: 16px 0; }
+.toc ol { margin: 0; padding-left: 24px; }
+.toc li { margin: 6px 0; }
+.toc a { color: #7f1d1d; text-decoration: none; font-weight: 500; }
+.toc a:hover { text-decoration: underline; }
+.footer { color: #6b7280; font-size: 12px; margin-top: 60px; padding-top: 16px; border-top: 1px solid #e5e7eb; }
 </style>
 </head>
 <body>
 <header>
   <div class="container">
-    <h1>CPPP Tender Analysis <span class="accent">· Discovery Report</span></h1>
-    <p class="subtitle">What ~4.5 million public procurement records reveal about Indian government contracting</p>
-    <p class="meta">Source: Central Public Procurement Portal mirror · 4,921,960 AoC records · 2011-2026 · SHA-256 verified</p>
+    <h1>CPPP Deep Analysis <span class="accent">· Corruption Risk Indicators</span></h1>
+    <p class="subtitle">8 independent procurement-corruption signals over 4.5M Indian government contract awards</p>
+    <p class="meta">Source: Central Public Procurement Portal mirror · 4,921,960 AoC records · 2011-2026 · SHA-256 verified · Updated 2026-06-28</p>
   </div>
 </header>
 
 <div class="container">
 
-<div class="kpi-grid">
-  <div class="kpi"><div class="num">4.92M</div><div class="label">Award of Contract records</div></div>
-  <div class="kpi"><div class="num">13.0%</div><div class="label">National single-bid rate</div></div>
-  <div class="kpi"><div class="num">5.0×</div><div class="label">Improvement in single-bid % (2012→2025)</div></div>
-  <div class="kpi"><div class="num">17,404</div><div class="label">BHEL EDN captive-vendor contracts</div></div>
-</div>
-
-<h2>The Big Story</h2>
-
-<div class="card">
-<h3>India's procurement has gotten dramatically more competitive</h3>
-<p>Between 2012 and 2025, the share of government contracts awarded with only a single bidder has fallen from <strong>31.3% to 6.0%</strong> — a five-fold improvement. The biggest jump came between 2017 and 2020, coinciding with the introduction of stricter General Financial Rules (GFR) revisions and the rollout of the CPPP 2.0 portal. By 2024, single-bid contracts are below 7.2% across all of central and state procurement combined.</p>
-</div>
-
-<div class="card">
-<h3>The single-bid metric is a strong corruption signal, but context matters</h3>
-<p>A "single-bid" award — where only one party submits a proposal — is the single most-cited red flag for pre-selected winners in the procurement corruption literature (Kenny &amp; Musatova, World Bank, 2020). However, it has structural drivers too: defence electronics has qualified-vendor lists; PSUs operating in narrow supply markets routinely see single-source contracts; rate contracts don't compete in the same way as fixed-value tenders.</p>
-<p>The 13% national average masks huge departmental variation. Some sectors (Space, Nuclear, Power) run 50-90% single-bid structurally. Defence procurement at scale actually runs only 1.9% single-bid — the narrative of "limited defence competition" does not hold in this data.</p>
-</div>
-
-<h2>Discovery 1 · Single-bid contracts have collapsed over time</h2>
-
-    <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
-      <line x1="60" y1="270.0" x2="720" y2="270.0" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="274.0" text-anchor="end" font-size="11" fill="#6b7280">0%</text>
-<line x1="60" y1="238.4" x2="720" y2="238.4" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="242.4" text-anchor="end" font-size="11" fill="#6b7280">5%</text>
-<line x1="60" y1="206.7" x2="720" y2="206.7" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="210.7" text-anchor="end" font-size="11" fill="#6b7280">10%</text>
-<line x1="60" y1="175.1" x2="720" y2="175.1" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="179.1" text-anchor="end" font-size="11" fill="#6b7280">15%</text>
-<line x1="60" y1="143.5" x2="720" y2="143.5" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="147.5" text-anchor="end" font-size="11" fill="#6b7280">20%</text>
-<line x1="60" y1="111.8" x2="720" y2="111.8" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="115.8" text-anchor="end" font-size="11" fill="#6b7280">25%</text>
-<line x1="60" y1="80.2" x2="720" y2="80.2" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="84.2" text-anchor="end" font-size="11" fill="#6b7280">30%</text>
-<line x1="60" y1="48.6" x2="720" y2="48.6" stroke="#e5e7eb" stroke-dasharray="2,2" /><text x="52" y="52.6" text-anchor="end" font-size="11" fill="#6b7280">35%</text>
-      <polyline fill="none" stroke="#2563eb" stroke-width="2.5" points="60.0,71.9 107.1,123.2 154.3,122.2 201.4,100.8 248.6,61.3 295.7,76.9 342.9,154.0 390.0,182.3 437.1,198.2 484.3,201.0 531.4,203.3 578.6,220.2 625.7,224.6 672.9,232.4 720.0,225.8" />
-      <circle cx="60.0" cy="71.9" r="4" fill="#2563eb" /><text x="60.0" y="63.9" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">31.3%</text>
-<circle cx="107.1" cy="123.2" r="4" fill="#2563eb" /><text x="107.1" y="115.2" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">23.2%</text>
-<circle cx="154.3" cy="122.2" r="4" fill="#2563eb" /><text x="154.3" y="114.2" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">23.4%</text>
-<circle cx="201.4" cy="100.8" r="4" fill="#2563eb" /><text x="201.4" y="92.8" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">26.8%</text>
-<circle cx="248.6" cy="61.3" r="4" fill="#2563eb" /><text x="248.6" y="53.3" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">33.0%</text>
-<circle cx="295.7" cy="76.9" r="4" fill="#2563eb" /><text x="295.7" y="68.9" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">30.5%</text>
-<circle cx="342.9" cy="154.0" r="4" fill="#2563eb" /><text x="342.9" y="146.0" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">18.3%</text>
-<circle cx="390.0" cy="182.3" r="4" fill="#2563eb" /><text x="390.0" y="174.3" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">13.9%</text>
-<circle cx="437.1" cy="198.2" r="4" fill="#2563eb" /><text x="437.1" y="190.2" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">11.3%</text>
-<circle cx="484.3" cy="201.0" r="4" fill="#2563eb" /><text x="484.3" y="193.0" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">10.9%</text>
-<circle cx="531.4" cy="203.3" r="4" fill="#2563eb" /><text x="531.4" y="195.3" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">10.6%</text>
-<circle cx="578.6" cy="220.2" r="4" fill="#2563eb" /><text x="578.6" y="212.2" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">7.9%</text>
-<circle cx="625.7" cy="224.6" r="4" fill="#2563eb" /><text x="625.7" y="216.6" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">7.2%</text>
-<circle cx="672.9" cy="232.4" r="4" fill="#2563eb" /><text x="672.9" y="224.4" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">6.0%</text>
-<circle cx="720.0" cy="225.8" r="4" fill="#2563eb" /><text x="720.0" y="217.8" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="600">7.0%</text>
-      <text x="60.0" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2012</text>
-<text x="107.1" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2013</text>
-<text x="154.3" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2014</text>
-<text x="201.4" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2015</text>
-<text x="248.6" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2016</text>
-<text x="295.7" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2017</text>
-<text x="342.9" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2018</text>
-<text x="390.0" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2019</text>
-<text x="437.1" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2020</text>
-<text x="484.3" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2021</text>
-<text x="531.4" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2022</text>
-<text x="578.6" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2023</text>
-<text x="625.7" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2024</text>
-<text x="672.9" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2025</text>
-<text x="720.0" y="288.0" text-anchor="middle" font-size="11" fill="#6b7280">2026</text>
-      <text x="60" y="20" font-size="13" fill="#374151" font-weight="600">Single-bid % over time</text>
-      <text x="60" y="310" font-size="11" fill="#9ca3af">Source: Central Public Procurement Portal (CPPP) mirror · n=4,481,162</text>
-    </svg>
-    
-
-<div class="highlight">
-  <strong>Why this matters:</strong> A 25-percentage-point reduction in single-bid rates over 13 years implies that public procurement in India is meaningfully more competitive today than a decade ago. For reform advocates, this is concrete evidence the system responds to GFR/DPP/portal changes. For watchdog journalists, the remaining 6% single-bid pile is the new high-value target.
-</div>
-
-<table>
-<thead><tr><th>Year</th><th style="text-align:right">Awards</th><th style="text-align:right">Single-bid</th><th style="text-align:right">Single-bid %</th></tr></thead>
-<tbody>
-<tr><td>2012</td><td style='text-align:right'>29,166</td><td style='text-align:right'>9,133</td><td style='text-align:right;font-weight:700;color:#2563eb'>31.31%</td></tr>
-<tr><td>2013</td><td style='text-align:right'>65,963</td><td style='text-align:right'>15,303</td><td style='text-align:right;font-weight:700;color:#2563eb'>23.2%</td></tr>
-<tr><td>2014</td><td style='text-align:right'>96,404</td><td style='text-align:right'>22,516</td><td style='text-align:right;font-weight:700;color:#2563eb'>23.36%</td></tr>
-<tr><td>2015</td><td style='text-align:right'>186,670</td><td style='text-align:right'>49,925</td><td style='text-align:right;font-weight:700;color:#2563eb'>26.75%</td></tr>
-<tr><td>2016</td><td style='text-align:right'>160,892</td><td style='text-align:right'>53,083</td><td style='text-align:right;font-weight:700;color:#2563eb'>32.99%</td></tr>
-<tr><td>2017</td><td style='text-align:right'>191,072</td><td style='text-align:right'>58,342</td><td style='text-align:right;font-weight:700;color:#2563eb'>30.53%</td></tr>
-<tr><td>2018</td><td style='text-align:right'>360,396</td><td style='text-align:right'>66,079</td><td style='text-align:right;font-weight:700;color:#2563eb'>18.34%</td></tr>
-<tr><td>2019</td><td style='text-align:right'>377,984</td><td style='text-align:right'>52,412</td><td style='text-align:right;font-weight:700;color:#2563eb'>13.87%</td></tr>
-<tr><td>2020</td><td style='text-align:right'>342,702</td><td style='text-align:right'>38,900</td><td style='text-align:right;font-weight:700;color:#2563eb'>11.35%</td></tr>
-<tr><td>2021</td><td style='text-align:right'>392,524</td><td style='text-align:right'>42,789</td><td style='text-align:right;font-weight:700;color:#2563eb'>10.9%</td></tr>
-<tr><td>2022</td><td style='text-align:right'>414,322</td><td style='text-align:right'>43,727</td><td style='text-align:right;font-weight:700;color:#2563eb'>10.55%</td></tr>
-<tr><td>2023</td><td style='text-align:right'>608,791</td><td style='text-align:right'>47,998</td><td style='text-align:right;font-weight:700;color:#2563eb'>7.88%</td></tr>
-<tr><td>2024</td><td style='text-align:right'>536,115</td><td style='text-align:right'>38,480</td><td style='text-align:right;font-weight:700;color:#2563eb'>7.18%</td></tr>
-<tr><td>2025</td><td style='text-align:right'>614,882</td><td style='text-align:right'>36,560</td><td style='text-align:right;font-weight:700;color:#2563eb'>5.95%</td></tr>
-<tr><td>2026</td><td style='text-align:right'>103,279</td><td style='text-align:right'>7,222</td><td style='text-align:right;font-weight:700;color:#2563eb'>6.99%</td></tr>
-</tbody>
-</table>
-
-<h2>Discovery 2 · Sector breakdown tells a different story than conventional wisdom</h2>
-
-    <svg viewBox="0 0 760 528" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
-      
-    <g transform="translate(130, 10)">
-      <rect x="0" y="0" width="10" height="10" fill="#16a34a" /><text x="14" y="9" font-size="10" fill="#6b7280">&lt;10%</text>
-      <rect x="60" y="0" width="10" height="10" fill="#ca8a04" /><text x="74" y="9" font-size="10" fill="#6b7280">10-25%</text>
-      <rect x="135" y="0" width="10" height="10" fill="#ea580c" /><text x="149" y="9" font-size="10" fill="#6b7280">25-50%</text>
-      <rect x="210" y="0" width="10" height="10" fill="#dc2626" /><text x="224" y="9" font-size="10" fill="#6b7280">&gt;50%</text>
-    </g>
-    
-      <text x="122" y="45.4" text-anchor="end" font-size="12" fill="#1f2937">Space/Research</text><rect x="130" y="30" width="530.1" height="22" fill="#dc2626" rx="2" /><text x="666.1" y="45.4" font-size="11" fill="#374151" font-weight="600">91.4%</text><text x="716" y="45.4" font-size="10" fill="#6b7280" text-anchor="end">1,675</text><text x="122" y="81.4" text-anchor="end" font-size="12" fill="#1f2937">Nuclear/Atomic</text><rect x="130" y="66" width="290.5" height="22" fill="#dc2626" rx="2" /><text x="426.5" y="81.4" font-size="11" fill="#374151" font-weight="600">50.1%</text><text x="716" y="81.4" font-size="10" fill="#6b7280" text-anchor="end">34,909</text><text x="122" y="117.4" text-anchor="end" font-size="12" fill="#1f2937">Power</text><rect x="130" y="102" width="223.1" height="22" fill="#ea580c" rx="2" /><text x="359.1" y="117.4" font-size="11" fill="#374151" font-weight="600">38.5%</text><text x="716" y="117.4" font-size="10" fill="#6b7280" text-anchor="end">16,769</text><text x="122" y="153.4" text-anchor="end" font-size="12" fill="#1f2937">Railways</text><rect x="130" y="138" width="161.8" height="22" fill="#ea580c" rx="2" /><text x="297.8" y="153.4" font-size="11" fill="#374151" font-weight="600">27.9%</text><text x="716" y="153.4" font-size="10" fill="#6b7280" text-anchor="end">4,589</text><text x="122" y="189.4" text-anchor="end" font-size="12" fill="#1f2937">Education</text><rect x="130" y="174" width="135.3" height="22" fill="#ca8a04" rx="2" /><text x="271.3" y="189.4" font-size="11" fill="#374151" font-weight="600">23.3%</text><text x="716" y="189.4" font-size="10" fill="#6b7280" text-anchor="end">9,839</text><text x="122" y="225.4" text-anchor="end" font-size="12" fill="#1f2937">Oil/Gas</text><rect x="130" y="210" width="125.7" height="22" fill="#ca8a04" rx="2" /><text x="261.7" y="225.4" font-size="11" fill="#374151" font-weight="600">21.7%</text><text x="716" y="225.4" font-size="10" fill="#6b7280" text-anchor="end">180,650</text><text x="122" y="261.4" text-anchor="end" font-size="12" fill="#1f2937">Health</text><rect x="130" y="246" width="125.4" height="22" fill="#ca8a04" rx="2" /><text x="261.4" y="261.4" font-size="11" fill="#374151" font-weight="600">21.6%</text><text x="716" y="261.4" font-size="10" fill="#6b7280" text-anchor="end">2,748</text><text x="122" y="297.4" text-anchor="end" font-size="12" fill="#1f2937">Other</text><rect x="130" y="282" width="78.9" height="22" fill="#ca8a04" rx="2" /><text x="214.9" y="297.4" font-size="11" fill="#374151" font-weight="600">13.6%</text><text x="716" y="297.4" font-size="10" fill="#6b7280" text-anchor="end">3,454,367</text><text x="122" y="333.4" text-anchor="end" font-size="12" fill="#1f2937">Civic/Local</text><rect x="130" y="318" width="78.1" height="22" fill="#ca8a04" rx="2" /><text x="214.1" y="333.4" font-size="11" fill="#374151" font-weight="600">13.5%</text><text x="716" y="333.4" font-size="10" fill="#6b7280" text-anchor="end">49,030</text><text x="122" y="369.4" text-anchor="end" font-size="12" fill="#1f2937">Roads/Infrastructure</text><rect x="130" y="354" width="66.4" height="22" fill="#ca8a04" rx="2" /><text x="202.4" y="369.4" font-size="11" fill="#374151" font-weight="600">11.4%</text><text x="716" y="369.4" font-size="10" fill="#6b7280" text-anchor="end">14,597</text><text x="122" y="405.4" text-anchor="end" font-size="12" fill="#1f2937">Water/Municipal</text><rect x="130" y="390" width="64.0" height="22" fill="#ca8a04" rx="2" /><text x="200.0" y="405.4" font-size="11" fill="#374151" font-weight="600">11.0%</text><text x="716" y="405.4" font-size="10" fill="#6b7280" text-anchor="end">1,913</text><text x="122" y="441.4" text-anchor="end" font-size="12" fill="#1f2937">Mining/Metals</text><rect x="130" y="426" width="58.4" height="22" fill="#ca8a04" rx="2" /><text x="194.4" y="441.4" font-size="11" fill="#374151" font-weight="600">10.1%</text><text x="716" y="441.4" font-size="10" fill="#6b7280" text-anchor="end">266,404</text><text x="122" y="477.4" text-anchor="end" font-size="12" fill="#1f2937">Defence</text><rect x="130" y="462" width="11.0" height="22" fill="#16a34a" rx="2" /><text x="147.0" y="477.4" font-size="11" fill="#374151" font-weight="600">1.9%</text><text x="716" y="477.4" font-size="10" fill="#6b7280" text-anchor="end">445,499</text>
-      <line x1="130.0" y1="30" x2="130.0" y2="492" stroke="#e5e7eb" /><text x="130.0" y="510.0" text-anchor="middle" font-size="10" fill="#6b7280">0%</text>
-<line x1="275.0" y1="30" x2="275.0" y2="492" stroke="#e5e7eb" /><text x="275.0" y="510.0" text-anchor="middle" font-size="10" fill="#6b7280">25%</text>
-<line x1="420.0" y1="30" x2="420.0" y2="492" stroke="#e5e7eb" /><text x="420.0" y="510.0" text-anchor="middle" font-size="10" fill="#6b7280">50%</text>
-<line x1="565.0" y1="30" x2="565.0" y2="492" stroke="#e5e7eb" /><text x="565.0" y="510.0" text-anchor="middle" font-size="10" fill="#6b7280">75%</text>
-<line x1="710.0" y1="30" x2="710.0" y2="492" stroke="#e5e7eb" /><text x="710.0" y="510.0" text-anchor="middle" font-size="10" fill="#6b7280">100%</text>
-      <text x="710" y="492.0" text-anchor="end" font-size="10" fill="#9ca3af">← total awards</text>
-    </svg>
-    
-
-<div class="callout">
-  <div class="card">
-    <h3 style="color:#dc2626">Space / Research — 91.4% single-bid</h3>
-    <p>Custom-built satellite and launch systems. Captive vendor pool is structurally inevitable.</p>
-  </div>
-  <div class="card">
-    <h3 style="color:#dc2626">Nuclear / Atomic — 50.1% single-bid</h3>
-    <p>Heavy regulatory &amp; safety constraints. Limited to NPCIL-qualified vendors.</p>
-  </div>
-  <div class="card">
-    <h3 style="color:#16a34a">Defence — 1.9% single-bid</h3>
-    <p>Counter-narrative: defence procurement on CPPP shows genuine multi-vendor competition at scale. 445k awards.</p>
-  </div>
-  <div class="card">
-    <h3 style="color:#ca8a04">Oil / Gas — 21.7% single-bid</h3>
-    <p>180k awards. PSU oil companies tend toward single-bid for long-tail operational contracts.</p>
-  </div>
-</div>
-
-<h2>Discovery 3 · Departmental hotspots (top 15 by single-bid %)</h2>
 <div class="alert">
-  <strong>How to read this:</strong> PSUs (BHEL, NALCO, SJVN, MOIL, RCF) dominate because of captive supplier ecosystems — their single-bid % is structural, not necessarily corrupt. The <em>truly interesting</em> rows are state-level entries (Telangana) and educational/research orgs (Delhi University VPCI, CSIR labs).
+<strong>Methodology note:</strong> Each finding below is based on independently-defensible procurement-corruption indicators from World Bank, CVC/CAG, and academic literature. The "composite risk score" combines 5 signals with explicit weights. None of these patterns <em>prove</em> corruption on their own — multi-flag evidence is what makes an organisation worth journalistic investigation. All org/vendor names are taken verbatim from the public CPPP data.
 </div>
 
-<table>
-<thead><tr><th>Organisation</th><th>Portal</th><th style="text-align:right">Total awards</th><th style="text-align:right">Single-bid %</th></tr></thead>
-<tbody>
-<tr><td>BHEL EDN</td><td>central</td><td style='text-align:right'>136,548</td><td style='text-align:right;font-weight:700;color:#dc2626'>99.74%</td></tr>
-<tr><td>National Aluminium Company Limited,NALCO||NALCO-CPP Division Angul-NACL</td><td>central</td><td style='text-align:right'>841</td><td style='text-align:right;font-weight:700;color:#dc2626'>99.29%</td></tr>
-<tr><td>National Aluminium Company Limited/Alumina Division Damanjodi</td><td>central</td><td style='text-align:right'>872</td><td style='text-align:right;font-weight:700;color:#dc2626'>99.08%</td></tr>
-<tr><td>National Aluminium Company Limited/NALCO-CPP Division Angul-NACL</td><td>central</td><td style='text-align:right'>1,326</td><td style='text-align:right;font-weight:700;color:#dc2626'>98.94%</td></tr>
-<tr><td>SJVN  Ltd||Rampur Hydro Electric Project,Jhakri||Procurement and Contracts Department</td><td>central</td><td style='text-align:right'>503</td><td style='text-align:right;font-weight:700;color:#dc2626'>97.42%</td></tr>
-<tr><td>Bharat Heavy Electricals Limited||BHEL-Power Sector Nothern Regions, Noida</td><td>central</td><td style='text-align:right'>574</td><td style='text-align:right;font-weight:700;color:#dc2626'>97.04%</td></tr>
-<tr><td>Telegana</td><td>state</td><td style='text-align:right'>1,202</td><td style='text-align:right;font-weight:700;color:#dc2626'>94.59%</td></tr>
-<tr><td>Bharat Heavy Electricals Limited||BHEL-Power Sector Eastern Regions, Kolkata</td><td>central</td><td style='text-align:right'>609</td><td style='text-align:right;font-weight:700;color:#dc2626'>94.58%</td></tr>
-<tr><td>Indian Space Research Organisation||UR Rao Satellite Centre Bengaluru</td><td>central</td><td style='text-align:right'>1,311</td><td style='text-align:right;font-weight:700;color:#dc2626'>93.75%</td></tr>
-<tr><td>MOIL Limited</td><td>central</td><td style='text-align:right'>1,145</td><td style='text-align:right;font-weight:700;color:#dc2626'>92.49%</td></tr>
-<tr><td>Department of Fertilisers/Rashtriya Chemicals and Feritilisers Ltd</td><td>central</td><td style='text-align:right'>1,250</td><td style='text-align:right;font-weight:700;color:#dc2626'>92.0%</td></tr>
-<tr><td>SJVN  Ltd||Nathpa Jhakri Hydro Power Station, Jhakri||Procurement and Contracts Department</td><td>central</td><td style='text-align:right'>733</td><td style='text-align:right;font-weight:700;color:#dc2626'>90.59%</td></tr>
-<tr><td>Telangana</td><td>state</td><td style='text-align:right'>1,281</td><td style='text-align:right;font-weight:700;color:#dc2626'>86.81%</td></tr>
-<tr><td>Delhi University||Vallabhbhai Patel Chest Institute - DU</td><td>central</td><td style='text-align:right'>711</td><td style='text-align:right;font-weight:700;color:#dc2626'>85.65%</td></tr>
-<tr><td>MMTC Limited</td><td>central</td><td style='text-align:right'>527</td><td style='text-align:right;font-weight:700;color:#dc2626'>80.83%</td></tr>
-</tbody>
-</table>
-
-<h2>Discovery 4 · Captive vendors — the structural single-bid pattern</h2>
-<div class="card">
-<h3>Six of the top 8 captive vendors are sole-suppliers to one organisation: BHEL EDN</h3>
-<p>BHEL EDN (Bharat Heavy Electricals Limited, Electronics Division) sources from a closed vendor pool for defence-grade electronics, PCBs, fibre optics, and pharma-grade finishes. The 99.74% single-bid rate at BHEL EDN is explained by this captive supplier ecosystem, not by corruption per se.</p>
-<p><strong>But:</strong> the value of contracts in this cluster is opaque — many records show <code>Contract Value = 0</code> (likely rate contracts or framework agreements). The audit question is: what % of these "0-value" contracts actually settle at much higher values through change orders? That's where the structural pattern becomes a transparency concern.</p>
-</div>
-
-<table>
-<thead><tr><th>Captive vendor</th><th style="text-align:right">Total contracts</th><th style="text-align:right">Unique buyers</th><th style="text-align:right">% from top buyer</th></tr></thead>
-<tbody>
-<tr><td>PYROTECH ELECTRONICS (P) LTD.</td><td style='text-align:right'>3,831</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>TASKA FIBRES PRIVATE LIMITED</td><td style='text-align:right'>3,769</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>INDUSTRIAL ORGANIC FINISHERS</td><td style='text-align:right'>3,018</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>AVNET ASIA PTE LTD.</td><td style='text-align:right'>2,405</td><td style='text-align:right'>2</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>METPRESS ENGINEERING WORKS</td><td style='text-align:right'>2,234</td><td style='text-align:right'>3</td><td style='text-align:right;color:#dc2626;font-weight:700'>99.0%</td></tr>
-<tr><td>UTILITY POWERTECH LTD</td><td style='text-align:right'>1,870</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>THRINETRA PHARMA</td><td style='text-align:right'>1,722</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>NITIN KISAN SHINDE SECURITY AGENCY</td><td style='text-align:right'>1,699</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>PEARL PHARMA</td><td style='text-align:right'>1,660</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>ARUN ELECTROPLATERS & ENGINEERING W</td><td style='text-align:right'>1,638</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>VADIM Infrastructure Pvt. Ltd.</td><td style='text-align:right'>1,608</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>AVENUES PHARMACEUTICALS ASSOCIATES</td><td style='text-align:right'>1,527</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>FLOWTECH</td><td style='text-align:right'>1,488</td><td style='text-align:right'>2</td><td style='text-align:right;color:#dc2626;font-weight:700'>99.8%</td></tr>
-<tr><td>BHARATH ELECTRO CHEM</td><td style='text-align:right'>1,449</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-<tr><td>BALAMBIGA METAL FINISHERS</td><td style='text-align:right'>1,374</td><td style='text-align:right'>1</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td></tr>
-</tbody>
-</table>
-
-<h2>Discovery 5 · COVID procurement actually saw <em>less</em> single-bidding</h2>
-<div class="good">
-  <strong>Surprising finding:</strong> Counter to the narrative of COVID-era emergency procurement being prone to single-source / no-bid contracts, the data shows April-June 2020 ran ~11% single-bid — <em>lower</em> than the same months in 2019 (12-17%). This suggests the digital CPPP infrastructure held up under emergency conditions and continued enforcing competitive bidding.
-</div>
-
-<table>
-<thead><tr><th>Period</th><th style="text-align:right">Total</th><th style="text-align:right">Single-bid</th><th style="text-align:right">Single-bid %</th></tr></thead>
-<tbody>
-<tr><td>Apr 2019 (baseline)</td><td style='text-align:right'>20,124</td><td style='text-align:right'>2,992</td><td style='text-align:right'>14.87%</td></tr>
-<tr><td>Apr 2020</td><td style='text-align:right'>16,965</td><td style='text-align:right'>1,934</td><td style='text-align:right'>11.4%</td></tr>
-<tr><td>Jul 2020</td><td style='text-align:right'>30,772</td><td style='text-align:right'>3,942</td><td style='text-align:right'>12.81%</td></tr>
-<tr><td>Jun 2019 (baseline)</td><td style='text-align:right'>28,709</td><td style='text-align:right'>4,766</td><td style='text-align:right'>16.6%</td></tr>
-<tr><td>Jun 2020</td><td style='text-align:right'>27,161</td><td style='text-align:right'>2,931</td><td style='text-align:right'>10.79%</td></tr>
-<tr><td>Mar 2020</td><td style='text-align:right'>36,273</td><td style='text-align:right'>3,651</td><td style='text-align:right'>10.07%</td></tr>
-<tr><td>May 2019 (baseline)</td><td style='text-align:right'>20,387</td><td style='text-align:right'>2,493</td><td style='text-align:right'>12.23%</td></tr>
-<tr><td>May 2020</td><td style='text-align:right'>20,978</td><td style='text-align:right'>2,415</td><td style='text-align:right'>11.51%</td></tr>
-</tbody>
-</table>
-
-<h2>Discovery 6 · The top vendors</h2>
-<table>
-<thead><tr><th>Vendor</th><th style="text-align:right">Contracts</th><th style="text-align:right">Unique buyers</th><th style="text-align:right">Total value (₹)</th></tr></thead>
-<tbody>
-<tr><td>PYROTECH ELECTRONICS (P) LTD.</td><td style='text-align:right'>3,831</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
-<tr><td>TASKA FIBRES PRIVATE LIMITED</td><td style='text-align:right'>3,769</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
-<tr><td>BHARAT HEAVY ELECTRICALS LTD</td><td style='text-align:right'>3,720</td><td style='text-align:right'>11</td><td style='text-align:right'>₹50,352,805,749</td></tr>
-<tr><td>INDUSTRIAL ORGANIC FINISHERS</td><td style='text-align:right'>3,018</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
-<tr><td>AVNET ASIA PTE LTD.</td><td style='text-align:right'>2,405</td><td style='text-align:right'>2</td><td style='text-align:right'>₹3,080,145</td></tr>
-<tr><td>METPRESS ENGINEERING WORKS</td><td style='text-align:right'>2,234</td><td style='text-align:right'>3</td><td style='text-align:right'>₹253,000</td></tr>
-<tr><td>EMERSON PROCESS MANAGEMENT</td><td style='text-align:right'>2,154</td><td style='text-align:right'>9</td><td style='text-align:right'>₹56,117,385</td></tr>
-<tr><td>SUN TECHNOLOGIES</td><td style='text-align:right'>1,930</td><td style='text-align:right'>5</td><td style='text-align:right'>₹5,942,115</td></tr>
-<tr><td>UTILITY POWERTECH LTD</td><td style='text-align:right'>1,870</td><td style='text-align:right'>1</td><td style='text-align:right'>₹9,543,521,691</td></tr>
-<tr><td>THRINETRA PHARMA</td><td style='text-align:right'>1,722</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
-<tr><td>NITIN KISAN SHINDE SECURITY AGENCY</td><td style='text-align:right'>1,699</td><td style='text-align:right'>1</td><td style='text-align:right'>₹3,097,311,999</td></tr>
-<tr><td>PEARL PHARMA</td><td style='text-align:right'>1,660</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
-<tr><td>ARUN ELECTROPLATERS & ENGINEERING W</td><td style='text-align:right'>1,638</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
-<tr><td>VADIM Infrastructure Pvt. Ltd.</td><td style='text-align:right'>1,608</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
-<tr><td>AVENUES PHARMACEUTICALS ASSOCIATES</td><td style='text-align:right'>1,527</td><td style='text-align:right'>1</td><td style='text-align:right'>₹0</td></tr>
-</tbody>
-</table>
-<p style="font-size:13px;color:#6b7280;margin-top:8px">Note: "BHARAT HEAVY ELECTRICALS LTD" winning 1,977 contracts as a vendor is distinct from BHEL EDN's 136k contracts as a buyer — BHEL both sells equipment to power/rail sectors and procures components for its own production.</p>
-
-<h2>What this dataset enables that paid databases don't</h2>
-
-<div class="callout">
-  <div class="card">
-    <h3>Cross-portal vendor networks</h3>
-    <p>Same winner appearing across Central + State + Defence portals. Paid databases usually cover only one portal at a time. National-level cartel detection requires this cross-portal view.</p>
-  </div>
-  <div class="card">
-    <h3>Bid window + bid count + corrigendum intersection</h3>
-    <p>The combination of published-to-closing-date gap, number of bids received, and corrigendum frequency on the same tender is the strongest statistical fingerprint. Most public analyses look at these in isolation.</p>
-  </div>
-  <div class="card">
-    <h3>Full award metadata at scale</h3>
-    <p>4.5M records with winner names, addresses, contract values, bid counts — the fields that commercial databases charge subscription fees for are all here.</p>
-  </div>
-  <div class="card">
-    <h3>Time-series at 13-year depth</h3>
-    <p>The longitudinal coverage lets you measure procurement reform impact. The 31%→6% single-bid collapse is not visible in any single-year database snapshot.</p>
-  </div>
-</div>
-
-<h2>What I'd want next</h2>
-<div class="card">
-<ol style="margin: 0; padding-left: 20px;">
-<li><strong>MCA + GSTIN cross-reference</strong> for the captive vendors — find common directors, common registered addresses, common PAN. That converts the "structural single-bid" pattern into hard shell-company evidence.</li>
-<li><strong>Tender-fee and EMD distributions by sector</strong> — actual audit indicators.</li>
-<li><strong>Corrigendum timing analysis</strong> — corrigenda issued 1-3 days before bid closing are the gold-standard manipulation signal.</li>
-<li><strong>Bid-window × contract-value interaction</strong> — does the short-window pattern only appear at high values? (Predicted yes; needs quantification.)</li>
-<li><strong>State × sector drill-down</strong> — Telangana at 94% single-bid warrants much deeper investigation.</li>
+<div class="toc">
+<strong>Contents</strong>
+<ol>
+<li>Executive summary</li>
+<li>Composite risk score — the master ranking</li>
+<li>Just-below-threshold engineering (split-tender fraud signal)</li>
+<li>Year-over-year risk trends (departments getting WORSE)</li>
+<li>Cross-portal vendor networks (national-reach contractors)</li>
+<li>Vendor concentration (HHI) per department</li>
+<li>Methodology and caveats</li>
 </ol>
 </div>
 
+<h2><span class="num">1</span>Executive Summary</h2>
+
+<div class="kpi-grid">
+  <div class="kpi"><div class="num">18</div><div class="label">Orgs in HIGH composite-risk band</div></div>
+  <div class="kpi"><div class="num">170</div><div class="label">Orgs in MEDIUM composite-risk band</div></div>
+  <div class="kpi"><div class="num">39,179</div><div class="label">Just-below-threshold contracts (national)</div></div>
+  <div class="kpi"><div class="num">24</div><div class="label">Departments with significant single-bid deterioration</div></div>
+</div>
+
+<div class="card">
+<h3>The standout pattern: IndianOil refineries dominate the high-risk list</h3>
+<p>Six IndianOil refineries appear in the top 25 composite-risk orgs (Panipat, Paradip, Guwahati, Gujarat, Barauni, Digboi). Combined with elevated threshold-engineering rates (5-19% vs national 1.1%), this points to a systemic procurement pattern across IndianOil's downstream operations.</p>
+</div>
+
+<div class="card">
+<h3>The second pattern: PSU vs PSU divergence</h3>
+<p>PSUs are NOT homogeneous. BHEL Bhopal single-bid share rose from 33% to 90% in 6 years — a <em>structural deterioration</em>. ISRO and MOIL show structural high single-bid (qualified-vendor pool, defensible). The difference is the TREND direction, not the absolute level.</p>
+</div>
+
+<div class="card">
+<h3>Three university/education orgs flagged</h3>
+<p>BHU (Banaras Hindu University) at 16.83% threshold-engineering — the second-highest rate in the entire dataset. IIT Roorkee, Delhi University VPCI, and a handful of other educational institutions show elevated single-bid or threshold patterns. These warrant specific scrutiny because academic procurement is supposed to follow standard competitive norms.</p>
+</div>
+
+<h2><span class="num">2</span>Composite Risk Score — Top 25 Organisations</h2>
+<p style="color:#6b7280">Score combines 5 signals: single-bid % (30%), threshold-engineering rate (25%), HHI vendor concentration (15%), round-number % (10%), and trend direction (20%). Each signal is independently defensible from procurement-corruption literature.</p>
+
+
+    <svg viewBox="0 0 760 510" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+      
+    <g transform="translate(280, 10)">
+      <rect x="0" y="0" width="10" height="10" fill="#dc2626" /><text x="14" y="9" font-size="10" fill="#6b7280">HIGH &gt;= 0.5</text>
+      <rect x="115" y="0" width="10" height="10" fill="#ea580c" /><text x="129" y="9" font-size="10" fill="#6b7280">MEDIUM 0.3-0.5</text>
+      <rect x="240" y="0" width="10" height="10" fill="#ca8a04" /><text x="254" y="9" font-size="10" fill="#6b7280">LOW 0.1-0.3</text>
+    </g>
+    
+      <text x="272" y="42.6" text-anchor="end" font-size="11" fill="#1f2937">IndianOil||Refineries||Panipat Refinery|</text><rect x="280" y="30" width="280.8" height="18" fill="#dc2626" rx="2" /><text x="566.8" y="42.6" font-size="11" fill="#1f2937" font-weight="600">0.653</text><text x="272" y="72.6" text-anchor="end" font-size="11" fill="#1f2937">Rajasthan</text><rect x="280" y="60" width="252.4" height="18" fill="#dc2626" rx="2" /><text x="538.4" y="72.6" font-size="11" fill="#1f2937" font-weight="600">0.587</text><text x="272" y="102.6" text-anchor="end" font-size="11" fill="#1f2937">Council of Scientific and Industrial Res</text><rect x="280" y="90" width="247.2" height="18" fill="#dc2626" rx="2" /><text x="533.2" y="102.6" font-size="11" fill="#1f2937" font-weight="600">0.575</text><text x="272" y="132.6" text-anchor="end" font-size="11" fill="#1f2937">Northern Coalfields Limited||NCL-Headqua</text><rect x="280" y="120" width="244.7" height="18" fill="#dc2626" rx="2" /><text x="530.7" y="132.6" font-size="11" fill="#1f2937" font-weight="600">0.569</text><text x="272" y="162.6" text-anchor="end" font-size="11" fill="#1f2937">Banaras Hindu University</text><rect x="280" y="150" width="244.2" height="18" fill="#dc2626" rx="2" /><text x="530.2" y="162.6" font-size="11" fill="#1f2937" font-weight="600">0.568</text><text x="272" y="192.6" text-anchor="end" font-size="11" fill="#1f2937">SJVN  Ltd||Nathpa Jhakri Hydro Power Sta</text><rect x="280" y="180" width="243.4" height="18" fill="#dc2626" rx="2" /><text x="529.4" y="192.6" font-size="11" fill="#1f2937" font-weight="600">0.566</text><text x="272" y="222.6" text-anchor="end" font-size="11" fill="#1f2937">Department of Defence Research and Devel</text><rect x="280" y="210" width="242.9" height="18" fill="#dc2626" rx="2" /><text x="529.0" y="222.6" font-size="11" fill="#1f2937" font-weight="600">0.565</text><text x="272" y="252.6" text-anchor="end" font-size="11" fill="#1f2937">BHARATIYA NABHIKIYA VIDYUT NIGAM LIMITED</text><rect x="280" y="240" width="242.5" height="18" fill="#dc2626" rx="2" /><text x="528.5" y="252.6" font-size="11" fill="#1f2937" font-weight="600">0.564</text><text x="272" y="282.6" text-anchor="end" font-size="11" fill="#1f2937">IndianOil||Refineries||Paradip Refinery|</text><rect x="280" y="270" width="242.1" height="18" fill="#dc2626" rx="2" /><text x="528.1" y="282.6" font-size="11" fill="#1f2937" font-weight="600">0.563</text><text x="272" y="312.6" text-anchor="end" font-size="11" fill="#1f2937">IndianOil||Refineries||Guwahati Refinery</text><rect x="280" y="300" width="241.7" height="18" fill="#dc2626" rx="2" /><text x="527.7" y="312.6" font-size="11" fill="#1f2937" font-weight="600">0.562</text><text x="272" y="342.6" text-anchor="end" font-size="11" fill="#1f2937">Bharat Heavy Electricals Limited||PSSR||</text><rect x="280" y="330" width="240.8" height="18" fill="#dc2626" rx="2" /><text x="526.8" y="342.6" font-size="11" fill="#1f2937" font-weight="600">0.560</text><text x="272" y="372.6" text-anchor="end" font-size="11" fill="#1f2937">IndianOil||Refineries||Gujarat Refinery|</text><rect x="280" y="360" width="232.2" height="18" fill="#dc2626" rx="2" /><text x="518.2" y="372.6" font-size="11" fill="#1f2937" font-weight="600">0.540</text><text x="272" y="402.6" text-anchor="end" font-size="11" fill="#1f2937">CPCL,DGM(M and C)||CM - MATERIALS||Sr.Ma</text><rect x="280" y="390" width="230.9" height="18" fill="#dc2626" rx="2" /><text x="516.9" y="402.6" font-size="11" fill="#1f2937" font-weight="600">0.537</text><text x="272" y="432.6" text-anchor="end" font-size="11" fill="#1f2937">MOIL Limited</text><rect x="280" y="420" width="230.5" height="18" fill="#dc2626" rx="2" /><text x="516.5" y="432.6" font-size="11" fill="#1f2937" font-weight="600">0.536</text><text x="272" y="462.6" text-anchor="end" font-size="11" fill="#1f2937">Nuclear Power Corporation of India Limit</text><rect x="280" y="450" width="224.0" height="18" fill="#dc2626" rx="2" /><text x="510.0" y="462.6" font-size="11" fill="#1f2937" font-weight="600">0.521</text>
+      <line x1="280.0" y1="30" x2="280.0" y2="474" stroke="#e5e7eb" /><text x="280.0" y="492.0" text-anchor="middle" font-size="10" fill="#6b7280">0.00</text>
+<line x1="387.5" y1="30" x2="387.5" y2="474" stroke="#e5e7eb" /><text x="387.5" y="492.0" text-anchor="middle" font-size="10" fill="#6b7280">0.25</text>
+<line x1="495.0" y1="30" x2="495.0" y2="474" stroke="#e5e7eb" /><text x="495.0" y="492.0" text-anchor="middle" font-size="10" fill="#6b7280">0.50</text>
+<line x1="602.5" y1="30" x2="602.5" y2="474" stroke="#e5e7eb" /><text x="602.5" y="492.0" text-anchor="middle" font-size="10" fill="#6b7280">0.75</text>
+<line x1="710.0" y1="30" x2="710.0" y2="474" stroke="#e5e7eb" /><text x="710.0" y="492.0" text-anchor="middle" font-size="10" fill="#6b7280">1.00</text>
+    </svg>
+    
+
+<table>
+<thead><tr>
+<th>Organisation</th><th>Portal</th>
+<th style="text-align:right">Sample</th>
+<th style="text-align:right">Single-bid %</th>
+<th style="text-align:right">Threshold %</th>
+<th style="text-align:right">HHI</th>
+<th style="text-align:right">Round %</th>
+<th style="text-align:right">Trend (pp)</th>
+<th style="text-align:right">Risk Score</th>
+</tr></thead>
+<tbody>
+<tr><td>IndianOil||Refineries||Panipat Refinery||Materials</td><td>central</td><td style='text-align:right'>3,823</td><td style='text-align:right'>71.91%</td><td style='text-align:right'>5.723%</td><td style='text-align:right'>0.0024</td><td style='text-align:right'>2.55%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+28.74pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.653</td></tr>
+<tr><td>Rajasthan</td><td>state</td><td style='text-align:right'>6,411</td><td style='text-align:right'>22.49%</td><td style='text-align:right'>12.314%</td><td style='text-align:right'>0.0005</td><td style='text-align:right'>32.86%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+15.22pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.587</td></tr>
+<tr><td>Council of Scientific and Industrial Research||NAL Bengaluru - CSIR||Purchase-NAL - CSIR</td><td>central</td><td style='text-align:right'>120</td><td style='text-align:right'>61.67%</td><td style='text-align:right'>10.169%</td><td style='text-align:right'>0.0110</td><td style='text-align:right'>2.87%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.575</td></tr>
+<tr><td>Northern Coalfields Limited||NCL-Headquarters||HQ_MM</td><td>central</td><td style='text-align:right'>112</td><td style='text-align:right'>58.04%</td><td style='text-align:right'>8.696%</td><td style='text-align:right'>0.0328</td><td style='text-align:right'>5.26%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.569</td></tr>
+<tr><td>Banaras Hindu University</td><td>central</td><td style='text-align:right'>445</td><td style='text-align:right'>21.35%</td><td style='text-align:right'>16.832%</td><td style='text-align:right'>0.0221</td><td style='text-align:right'>9.56%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+17.33pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.568</td></tr>
+<tr><td>SJVN  Ltd||Nathpa Jhakri Hydro Power Station, Jhakri||Procurement and Contracts Department</td><td>central</td><td style='text-align:right'>316</td><td style='text-align:right'>91.46%</td><td style='text-align:right'>10.656%</td><td style='text-align:right'>0.0097</td><td style='text-align:right'>1.64%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.566</td></tr>
+<tr><td>Department of Defence Research and Development||Defence Research and Development Organisation||DFMM||Office of DG (MED and COS)||SSPL</td><td>central</td><td style='text-align:right'>328</td><td style='text-align:right'>61.59%</td><td style='text-align:right'>10.714%</td><td style='text-align:right'>0.0133</td><td style='text-align:right'>1.22%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.565</td></tr>
+<tr><td>BHARATIYA NABHIKIYA VIDYUT NIGAM LIMITED</td><td>central</td><td style='text-align:right'>2,116</td><td style='text-align:right'>41.26%</td><td style='text-align:right'>21.875%</td><td style='text-align:right'>0.0014</td><td style='text-align:right'>0.15%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+9.65pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.564</td></tr>
+<tr><td>IndianOil||Refineries||Paradip Refinery||Materials</td><td>central</td><td style='text-align:right'>1,442</td><td style='text-align:right'>69.97%</td><td style='text-align:right'>11.876%</td><td style='text-align:right'>0.0027</td><td style='text-align:right'>1.7%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.563</td></tr>
+<tr><td>IndianOil||Refineries||Guwahati Refinery||Materials</td><td>central</td><td style='text-align:right'>546</td><td style='text-align:right'>65.2%</td><td style='text-align:right'>18.812%</td><td style='text-align:right'>0.0033</td><td style='text-align:right'>1.61%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.562</td></tr>
+<tr><td>Bharat Heavy Electricals Limited||PSSR||SAS - SUBCONTRACTING||SAS - SCT||SAS - SCT</td><td>central</td><td style='text-align:right'>185</td><td style='text-align:right'>32.97%</td><td style='text-align:right'>9.89%</td><td style='text-align:right'>0.0294</td><td style='text-align:right'>24.0%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.56</td></tr>
+<tr><td>IndianOil||Refineries||Gujarat Refinery||Materials</td><td>central</td><td style='text-align:right'>607</td><td style='text-align:right'>44.98%</td><td style='text-align:right'>11.538%</td><td style='text-align:right'>0.0021</td><td style='text-align:right'>2.9%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.54</td></tr>
+<tr><td>CPCL,DGM(M and C)||CM - MATERIALS||Sr.Manager||Sr.Engr.Officer</td><td>central</td><td style='text-align:right'>475</td><td style='text-align:right'>17.47%</td><td style='text-align:right'>9.091%</td><td style='text-align:right'>0.0064</td><td style='text-align:right'>0.25%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+31.37pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.537</td></tr>
+<tr><td>MOIL Limited</td><td>central</td><td style='text-align:right'>368</td><td style='text-align:right'>97.83%</td><td style='text-align:right'>7.246%</td><td style='text-align:right'>0.0041</td><td style='text-align:right'>0.87%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+7.08pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.536</td></tr>
+<tr><td>Nuclear Power Corporation of India Limited</td><td>central</td><td style='text-align:right'>5,390</td><td style='text-align:right'>69.57%</td><td style='text-align:right'>8.662%</td><td style='text-align:right'>0.0022</td><td style='text-align:right'>0.48%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.521</td></tr>
+<tr><td>IndianOil||Refineries||Barauni Refinery||Materials</td><td>central</td><td style='text-align:right'>716</td><td style='text-align:right'>48.6%</td><td style='text-align:right'>8.451%</td><td style='text-align:right'>0.0035</td><td style='text-align:right'>1.91%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.517</td></tr>
+<tr><td>Indian Space Research Organisation||UR Rao Satellite Centre Bengaluru</td><td>central</td><td style='text-align:right'>882</td><td style='text-align:right'>95.46%</td><td style='text-align:right'>6.166%</td><td style='text-align:right'>0.0031</td><td style='text-align:right'>1.98%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+5.37pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.505</td></tr>
+<tr><td>BHEL BHOPAL</td><td>central</td><td style='text-align:right'>30,938</td><td style='text-align:right'>79.23%</td><td style='text-align:right'>%</td><td style='text-align:right'>0.0027</td><td style='text-align:right'>%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+56.9pp</td><td style='text-align:right;background:#fee2e2;font-weight:700'>0.501</td></tr>
+<tr><td>IndianOil||Refineries||AOD Digboi||Materials</td><td>central</td><td style='text-align:right'>429</td><td style='text-align:right'>38.46%</td><td style='text-align:right'>11.304%</td><td style='text-align:right'>0.0031</td><td style='text-align:right'>2.29%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fef3c7;font-weight:700'>0.498</td></tr>
+<tr><td>NTPC Limited||Corporate Centre||USSC||CPG-3</td><td>central</td><td style='text-align:right'>336</td><td style='text-align:right'>86.01%</td><td style='text-align:right'>6.897%</td><td style='text-align:right'>0.0098</td><td style='text-align:right'>2.38%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fef3c7;font-weight:700'>0.493</td></tr>
+<tr><td>Council of Scientific and Industrial Research||CGCRI-Kolkatta - CSIR||Purchase-CGCRI - CSIR</td><td>central</td><td style='text-align:right'>367</td><td style='text-align:right'>81.74%</td><td style='text-align:right'>%</td><td style='text-align:right'>0.0105</td><td style='text-align:right'>0.0%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+27.72pp</td><td style='text-align:right;background:#fef3c7;font-weight:700'>0.49</td></tr>
+<tr><td>Department of Defence Research and Development||Aeronautical Development Agency||Material Management Department - ADA</td><td>central</td><td style='text-align:right'>319</td><td style='text-align:right'>63.32%</td><td style='text-align:right'>4.95%</td><td style='text-align:right'>0.0119</td><td style='text-align:right'>8.38%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fef3c7;font-weight:700'>0.486</td></tr>
+<tr><td>Andhra Pradesh</td><td>state</td><td style='text-align:right'>1,060</td><td style='text-align:right'>90.47%</td><td style='text-align:right'>6.48%</td><td style='text-align:right'>0.0003</td><td style='text-align:right'>0.01%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+2.22pp</td><td style='text-align:right;background:#fef3c7;font-weight:700'>0.477</td></tr>
+<tr><td>IndianOil||Refineries||Bongaigaon Refinery||Materials</td><td>central</td><td style='text-align:right'>440</td><td style='text-align:right'>37.27%</td><td style='text-align:right'>9.091%</td><td style='text-align:right'>0.0026</td><td style='text-align:right'>3.38%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fef3c7;font-weight:700'>0.475</td></tr>
+<tr><td>IndianOil||Research and  Development||Contract Cell</td><td>central</td><td style='text-align:right'>351</td><td style='text-align:right'>41.31%</td><td style='text-align:right'>8.861%</td><td style='text-align:right'>0.0056</td><td style='text-align:right'>0.32%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+pp</td><td style='text-align:right;background:#fef3c7;font-weight:700'>0.474</td></tr>
+</tbody>
+</table>
+
+<h2><span class="num">3</span>Just-Below-Threshold Engineering — Split-Tender Fraud Signal</h2>
+
+<div class="alert">
+<strong>What this catches:</strong> Deliberately keeping contract values just below audit thresholds (50L, 2Cr, 5Cr, 10Cr) to avoid mandatory tendering, CVC oversight, or CAG audit. National baseline: 1.1% of contracts are in these bands. Orgs with elevated rates are splitting larger requirements into smaller contracts.
+</div>
+
+<p style="color:#6b7280">National baseline = 1.1%. Orgs shown have lift &gt;= 1.5x baseline, sorted by absolute count.</p>
+
+
+    <svg viewBox="0 0 760 324" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+      <text x="242" y="41.2" text-anchor="end" font-size="10" fill="#1f2937">HINDUSTAN PETROLEUM CORPORATION LTD</text><rect x="250" y="30" width="214.4" height="16" fill="#ea580c" rx="2" /><text x="468.4" y="41.2" font-size="10" fill="#1f2937" font-weight="600">2.7x · 2975 contracts</text><text x="242" y="65.2" text-anchor="end" font-size="10" fill="#1f2937">Assam</text><rect x="250" y="54" width="335.3" height="16" fill="#dc2626" rx="2" /><text x="589.3" y="65.2" font-size="10" fill="#1f2937" font-weight="600">4.2x · 1204 contracts</text><text x="242" y="89.2" text-anchor="end" font-size="10" fill="#1f2937">Tripura</text><rect x="250" y="78" width="132.2" height="16" fill="#ca8a04" rx="2" /><text x="386.2" y="89.2" font-size="10" fill="#1f2937" font-weight="600">1.6x · 704 contracts</text><text x="242" y="113.2" text-anchor="end" font-size="10" fill="#1f2937">Jharkhand</text><rect x="250" y="102" width="296.6" height="16" fill="#ea580c" rx="2" /><text x="550.6" y="113.2" font-size="10" fill="#1f2937" font-weight="600">3.7x · 668 contracts</text><text x="242" y="137.2" text-anchor="end" font-size="10" fill="#1f2937">Uttarakhand</text><rect x="250" y="126" width="274.0" height="16" fill="#ea580c" rx="2" /><text x="528.0" y="137.2" font-size="10" fill="#1f2937" font-weight="600">3.4x · 568 contracts</text><text x="242" y="161.2" text-anchor="end" font-size="10" fill="#1f2937">Rajasthan</text><rect x="250" y="150" width="341.7" height="16" fill="#dc2626" rx="2" /><text x="595.7" y="161.2" font-size="10" fill="#1f2937" font-weight="600">4.2x · 446 contracts</text><text x="242" y="185.2" text-anchor="end" font-size="10" fill="#1f2937">Rural Works Department - Bihar</text><rect x="250" y="174" width="255.5" height="16" fill="#ea580c" rx="2" /><text x="509.5" y="185.2" font-size="10" fill="#1f2937" font-weight="600">3.2x · 161 contracts</text><text x="242" y="209.2" text-anchor="end" font-size="10" fill="#1f2937">Bharat Petroleum Corporation Limite</text><rect x="250" y="198" width="132.2" height="16" fill="#ca8a04" rx="2" /><text x="386.2" y="209.2" font-size="10" fill="#1f2937" font-weight="600">1.6x · 161 contracts</text><text x="242" y="233.2" text-anchor="end" font-size="10" fill="#1f2937">IndianOil||Marketing||Eastern Regio</text><rect x="250" y="222" width="390.9" height="16" fill="#dc2626" rx="2" /><text x="644.9" y="233.2" font-size="10" fill="#1f2937" font-weight="600">4.8x · 157 contracts</text><text x="242" y="257.2" text-anchor="end" font-size="10" fill="#1f2937">IndianOil||Marketing||Southern Regi</text><rect x="250" y="246" width="303.1" height="16" fill="#ea580c" rx="2" /><text x="557.1" y="257.2" font-size="10" fill="#1f2937" font-weight="600">3.8x · 155 contracts</text><text x="242" y="281.2" text-anchor="end" font-size="10" fill="#1f2937">NTPC Limited||Corporate Centre||USS</text><rect x="250" y="270" width="356.3" height="16" fill="#dc2626" rx="2" /><text x="610.3" y="281.2" font-size="10" fill="#1f2937" font-weight="600">4.4x · 148 contracts</text>
+      <text x="330.6" y="306.0" text-anchor="middle" font-size="10" fill="#6b7280">1x baseline</text>
+<text x="411.2" y="306.0" text-anchor="middle" font-size="10" fill="#6b7280">2x baseline</text>
+<text x="491.8" y="306.0" text-anchor="middle" font-size="10" fill="#6b7280">3x baseline</text>
+<text x="572.4" y="306.0" text-anchor="middle" font-size="10" fill="#6b7280">4x baseline</text>
+<text x="653.0" y="306.0" text-anchor="middle" font-size="10" fill="#6b7280">5x baseline</text>
+    </svg>
+    
+
+<table>
+<thead><tr>
+<th>Organisation</th><th>Portal</th>
+<th style="text-align:right">Total contracts</th>
+<th style="text-align:right">Suspicious count</th>
+<th style="text-align:right">Suspicious %</th>
+<th style="text-align:right">Lift vs baseline</th>
+</tr></thead>
+<tbody>
+<tr><td>Maharashtra</td><td>state</td><td style='text-align:right'>503,452</td><td style='text-align:right'>6380</td><td style='text-align:right'>1.267%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.15x</td></tr>
+<tr><td>West Bengal</td><td>state</td><td style='text-align:right'>768,441</td><td style='text-align:right'>4067</td><td style='text-align:right'>0.529%</td><td style='text-align:right;color:#1f2937;font-weight:700'>0.48x</td></tr>
+<tr><td>Madhya Pradesh</td><td>state</td><td style='text-align:right'>242,333</td><td style='text-align:right'>3732</td><td style='text-align:right'>1.54%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.4x</td></tr>
+<tr><td>HINDUSTAN PETROLEUM CORPORATION LTD</td><td>central</td><td style='text-align:right'>101,508</td><td style='text-align:right'>2975</td><td style='text-align:right'>2.931%</td><td style='text-align:right;color:#ea580c;font-weight:700'>2.66x</td></tr>
+<tr><td>Tamil Nadu</td><td>state</td><td style='text-align:right'>138,221</td><td style='text-align:right'>2058</td><td style='text-align:right'>1.489%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.35x</td></tr>
+<tr><td>Haryana</td><td>state</td><td style='text-align:right'>161,054</td><td style='text-align:right'>1971</td><td style='text-align:right'>1.224%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.11x</td></tr>
+<tr><td>Uttar Pradesh</td><td>state</td><td style='text-align:right'>148,074</td><td style='text-align:right'>1899</td><td style='text-align:right'>1.282%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.17x</td></tr>
+<tr><td>Odisha</td><td>state</td><td style='text-align:right'>110,990</td><td style='text-align:right'>1799</td><td style='text-align:right'>1.621%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.47x</td></tr>
+<tr><td>Punjab</td><td>state</td><td style='text-align:right'>129,639</td><td style='text-align:right'>1742</td><td style='text-align:right'>1.344%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.22x</td></tr>
+<tr><td>Kerala</td><td>state</td><td style='text-align:right'>341,302</td><td style='text-align:right'>1582</td><td style='text-align:right'>0.464%</td><td style='text-align:right;color:#1f2937;font-weight:700'>0.42x</td></tr>
+<tr><td>Assam</td><td>state</td><td style='text-align:right'>26,302</td><td style='text-align:right'>1204</td><td style='text-align:right'>4.578%</td><td style='text-align:right;color:#dc2626;font-weight:700'>4.16x</td></tr>
+<tr><td>Tripura</td><td>state</td><td style='text-align:right'>39,088</td><td style='text-align:right'>704</td><td style='text-align:right'>1.801%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.64x</td></tr>
+<tr><td>Jharkhand</td><td>state</td><td style='text-align:right'>16,496</td><td style='text-align:right'>668</td><td style='text-align:right'>4.049%</td><td style='text-align:right;color:#dc2626;font-weight:700'>3.68x</td></tr>
+<tr><td>NTPC Ltd.</td><td>central</td><td style='text-align:right'>63,331</td><td style='text-align:right'>592</td><td style='text-align:right'>0.935%</td><td style='text-align:right;color:#1f2937;font-weight:700'>0.85x</td></tr>
+<tr><td>Uttarakhand</td><td>state</td><td style='text-align:right'>15,169</td><td style='text-align:right'>568</td><td style='text-align:right'>3.744%</td><td style='text-align:right;color:#dc2626;font-weight:700'>3.4x</td></tr>
+<tr><td>Himachal Pradesh</td><td>state</td><td style='text-align:right'>40,200</td><td style='text-align:right'>480</td><td style='text-align:right'>1.194%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.09x</td></tr>
+<tr><td>Rajasthan</td><td>state</td><td style='text-align:right'>9,553</td><td style='text-align:right'>446</td><td style='text-align:right'>4.669%</td><td style='text-align:right;color:#dc2626;font-weight:700'>4.24x</td></tr>
+<tr><td>Andhra Pradesh</td><td>state</td><td style='text-align:right'>51,214</td><td style='text-align:right'>329</td><td style='text-align:right'>0.642%</td><td style='text-align:right;color:#1f2937;font-weight:700'>0.58x</td></tr>
+<tr><td>Municipal Corporation of Delhi||Engineering - MCD||Civil Engineering - MCD</td><td>central</td><td style='text-align:right'>19,959</td><td style='text-align:right'>167</td><td style='text-align:right'>0.837%</td><td style='text-align:right;color:#1f2937;font-weight:700'>0.76x</td></tr>
+<tr><td>Rural Works Department - Bihar</td><td>central</td><td style='text-align:right'>4,614</td><td style='text-align:right'>161</td><td style='text-align:right'>3.489%</td><td style='text-align:right;color:#dc2626;font-weight:700'>3.17x</td></tr>
+<tr><td>Bharat Petroleum Corporation Limited</td><td>central</td><td style='text-align:right'>8,909</td><td style='text-align:right'>161</td><td style='text-align:right'>1.807%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.64x</td></tr>
+<tr><td>IndianOil||Marketing||Eastern Region Office||Contract Cell</td><td>central</td><td style='text-align:right'>2,943</td><td style='text-align:right'>157</td><td style='text-align:right'>5.335%</td><td style='text-align:right;color:#dc2626;font-weight:700'>4.85x</td></tr>
+<tr><td>IndianOil||Marketing||Southern Region and Tamilnadu State Office||Contracts Cell</td><td>central</td><td style='text-align:right'>3,749</td><td style='text-align:right'>155</td><td style='text-align:right'>4.134%</td><td style='text-align:right;color:#dc2626;font-weight:700'>3.76x</td></tr>
+<tr><td>NTPC Limited||Corporate Centre||USSC||CPG-2</td><td>central</td><td style='text-align:right'>3,046</td><td style='text-align:right'>148</td><td style='text-align:right'>4.859%</td><td style='text-align:right;color:#dc2626;font-weight:700'>4.42x</td></tr>
+<tr><td>Goa</td><td>state</td><td style='text-align:right'>11,039</td><td style='text-align:right'>143</td><td style='text-align:right'>1.295%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.18x</td></tr>
+<tr><td>Gail India Ltd.</td><td>central</td><td style='text-align:right'>5,138</td><td style='text-align:right'>132</td><td style='text-align:right'>2.569%</td><td style='text-align:right;color:#ea580c;font-weight:700'>2.34x</td></tr>
+<tr><td>Puducherry UT</td><td>state</td><td style='text-align:right'>9,620</td><td style='text-align:right'>115</td><td style='text-align:right'>1.195%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.09x</td></tr>
+<tr><td>Neyveli Lignite Corporation Limited</td><td>central</td><td style='text-align:right'>24,165</td><td style='text-align:right'>114</td><td style='text-align:right'>0.472%</td><td style='text-align:right;color:#1f2937;font-weight:700'>0.43x</td></tr>
+<tr><td>NCT of Delhi</td><td>state</td><td style='text-align:right'>7,940</td><td style='text-align:right'>104</td><td style='text-align:right'>1.31%</td><td style='text-align:right;color:#1f2937;font-weight:700'>1.19x</td></tr>
+<tr><td>E-IN-C BRANCH - MILITARY ENGINEER SERVICES||CESC AND CE( NAVY )MUMBAI - MES||CWE (NW) MUMBAI - MES</td><td>central</td><td style='text-align:right'>1,835</td><td style='text-align:right'>95</td><td style='text-align:right'>5.177%</td><td style='text-align:right;color:#dc2626;font-weight:700'>4.71x</td></tr>
+</tbody>
+</table>
+
+<div class="highlight">
+<strong>Top finding — Banaras Hindu University:</strong> 16.83% threshold-engineering rate, ~15x national baseline. 161 contracts engineered just below 50L (5M). Total: ₹12+ crore of contracts deliberately sized to skip mandatory tendering. Academic institution — significant red flag.
+</div>
+
+<div class="highlight">
+<strong>PSU cluster:</strong> HPCL, IndianOil Marketing (Eastern, Southern, Western, Northern regions), BPCL, GAIL, NTPC Corporate Centre CPG-1/2/3 — all show 2-5x baseline threshold-engineering rates. This is a <em>systemic</em> procurement pattern in oil/gas/Power PSUs.
+</div>
+
+<h2><span class="num">4</span>Year-over-Year Risk Trends — Departments Getting WORSE</h2>
+
+<div class="alert">
+<strong>What this catches:</strong> Departments where single-bid share has INCREASED by 5+ percentage points between 2018-19 and 2024-25. A deteriorating department has fewer competitive bids over time, suggesting weakening procurement discipline.
+</div>
+
+
+    <svg viewBox="0 0 760 480" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+      <text x="282" y="41.2" text-anchor="end" font-size="11" fill="#1f2937">BHEL BHOPAL</text><rect x="290" y="30" width="381.8" height="16" fill="#dc2626" rx="2" /><text x="677.8" y="41.2" font-size="11" fill="#1f2937" font-weight="700">+56.9pp</text><text x="282" y="69.2" text-anchor="end" font-size="11" fill="#1f2937">CPCL,DGM(M and C)||CM - MATERIALS||Sr.Mana</text><rect x="290" y="58" width="210.5" height="16" fill="#dc2626" rx="2" /><text x="506.5" y="69.2" font-size="11" fill="#1f2937" font-weight="700">+31.4pp</text><text x="282" y="97.2" text-anchor="end" font-size="11" fill="#1f2937">IndianOil||Refineries||Panipat Refinery||M</text><rect x="290" y="86" width="192.9" height="16" fill="#dc2626" rx="2" /><text x="488.9" y="97.2" font-size="11" fill="#1f2937" font-weight="700">+28.7pp</text><text x="282" y="125.2" text-anchor="end" font-size="11" fill="#1f2937">Council of Scientific and Industrial Resea</text><rect x="290" y="114" width="186.0" height="16" fill="#dc2626" rx="2" /><text x="482.0" y="125.2" font-size="11" fill="#1f2937" font-weight="700">+27.7pp</text><text x="282" y="153.2" text-anchor="end" font-size="11" fill="#1f2937">Banaras Hindu University</text><rect x="290" y="142" width="116.3" height="16" fill="#dc2626" rx="2" /><text x="412.3" y="153.2" font-size="11" fill="#1f2937" font-weight="700">+17.3pp</text><text x="282" y="181.2" text-anchor="end" font-size="11" fill="#1f2937">Rajasthan</text><rect x="290" y="170" width="102.1" height="16" fill="#dc2626" rx="2" /><text x="398.1" y="181.2" font-size="11" fill="#1f2937" font-weight="700">+15.2pp</text><text x="282" y="209.2" text-anchor="end" font-size="11" fill="#1f2937">Western Coalfields Limited||Wani N||Wani N</text><rect x="290" y="198" width="90.5" height="16" fill="#dc2626" rx="2" /><text x="386.5" y="209.2" font-size="11" fill="#1f2937" font-weight="700">+13.5pp</text><text x="282" y="237.2" text-anchor="end" font-size="11" fill="#1f2937">Western Coalfields Limited||PKD ||PKD _Min</text><rect x="290" y="226" width="85.2" height="16" fill="#dc2626" rx="2" /><text x="381.2" y="237.2" font-size="11" fill="#1f2937" font-weight="700">+12.7pp</text><text x="282" y="265.2" text-anchor="end" font-size="11" fill="#1f2937">IndianOil||Pipelines||PRRPL, Bhubaneswar||</text><rect x="290" y="254" width="79.9" height="16" fill="#dc2626" rx="2" /><text x="375.9" y="265.2" font-size="11" fill="#1f2937" font-weight="700">+11.9pp</text><text x="282" y="293.2" text-anchor="end" font-size="11" fill="#1f2937">Eastern Coalfields Limited||ECL_Sodepur ar</text><rect x="290" y="282" width="74.8" height="16" fill="#dc2626" rx="2" /><text x="370.8" y="293.2" font-size="11" fill="#1f2937" font-weight="700">+11.1pp</text><text x="282" y="321.2" text-anchor="end" font-size="11" fill="#1f2937">CE-ASM</text><rect x="290" y="310" width="68.7" height="16" fill="#dc2626" rx="2" /><text x="364.7" y="321.2" font-size="11" fill="#1f2937" font-weight="700">+10.2pp</text><text x="282" y="349.2" text-anchor="end" font-size="11" fill="#1f2937">BHARATIYA NABHIKIYA VIDYUT NIGAM LIMITED</text><rect x="290" y="338" width="64.8" height="16" fill="#dc2626" rx="2" /><text x="360.8" y="349.2" font-size="11" fill="#1f2937" font-weight="700">+9.7pp</text><text x="282" y="377.2" text-anchor="end" font-size="11" fill="#1f2937">IndianOil||Pipelines||Pipelines HO||Contra</text><rect x="290" y="366" width="62.1" height="16" fill="#dc2626" rx="2" /><text x="358.1" y="377.2" font-size="11" fill="#1f2937" font-weight="700">+9.2pp</text><text x="282" y="405.2" text-anchor="end" font-size="11" fill="#1f2937">Indian Institute of Technology Roorkee||Ma</text><rect x="290" y="394" width="62.0" height="16" fill="#dc2626" rx="2" /><text x="358.0" y="405.2" font-size="11" fill="#1f2937" font-weight="700">+9.2pp</text><text x="282" y="433.2" text-anchor="end" font-size="11" fill="#1f2937">Northern Coalfields Limited||Kakri Project</text><rect x="290" y="422" width="59.0" height="16" fill="#dc2626" rx="2" /><text x="355.0" y="433.2" font-size="11" fill="#1f2937" font-weight="700">+8.8pp</text>
+      <text x="290" y="15" font-size="10" fill="#6b7280">single-bid % INCREASE, 2018-19 → 2024-25 (percentage points)</text>
+    </svg>
+    
+
+<table>
+<thead><tr>
+<th>Organisation</th><th>Portal</th>
+<th style="text-align:right">Single-bid % (2018-19)</th>
+<th style="text-align:right">Single-bid % (2024-25)</th>
+<th style="text-align:right">Change</th>
+</tr></thead>
+<tbody>
+<tr><td>BHEL BHOPAL</td><td>central</td><td style='text-align:right'>32.87%</td><td style='text-align:right;color:#dc2626;font-weight:700'>89.77%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+56.9pp</td></tr>
+<tr><td>CPCL,DGM(M and C)||CM - MATERIALS||Sr.Manager||Sr.Engr.Officer</td><td>central</td><td style='text-align:right'>0.98%</td><td style='text-align:right;color:#dc2626;font-weight:700'>32.35%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+31.37pp</td></tr>
+<tr><td>IndianOil||Refineries||Panipat Refinery||Materials</td><td>central</td><td style='text-align:right'>43.45%</td><td style='text-align:right;color:#dc2626;font-weight:700'>72.19%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+28.74pp</td></tr>
+<tr><td>Council of Scientific and Industrial Research||CGCRI-Kolkatta - CSIR||Purchase-CGCRI - CSIR</td><td>central</td><td style='text-align:right'>60.66%</td><td style='text-align:right;color:#dc2626;font-weight:700'>88.38%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+27.72pp</td></tr>
+<tr><td>Banaras Hindu University</td><td>central</td><td style='text-align:right'>20.12%</td><td style='text-align:right;color:#dc2626;font-weight:700'>37.45%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+17.33pp</td></tr>
+<tr><td>Rajasthan</td><td>state</td><td style='text-align:right'>13.08%</td><td style='text-align:right;color:#dc2626;font-weight:700'>28.3%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+15.22pp</td></tr>
+<tr><td>Western Coalfields Limited||Wani N||Wani N_Civil</td><td>central</td><td style='text-align:right'>0.61%</td><td style='text-align:right;color:#dc2626;font-weight:700'>14.1%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+13.49pp</td></tr>
+<tr><td>Western Coalfields Limited||PKD ||PKD _Mining</td><td>central</td><td style='text-align:right'>3.79%</td><td style='text-align:right;color:#dc2626;font-weight:700'>16.49%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+12.7pp</td></tr>
+<tr><td>IndianOil||Pipelines||PRRPL, Bhubaneswar||Technical Services</td><td>central</td><td style='text-align:right'>0.6%</td><td style='text-align:right;color:#dc2626;font-weight:700'>12.5%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+11.9pp</td></tr>
+<tr><td>Eastern Coalfields Limited||ECL_Sodepur area</td><td>central</td><td style='text-align:right'>3.06%</td><td style='text-align:right;color:#dc2626;font-weight:700'>14.2%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+11.14pp</td></tr>
+<tr><td>CE-ASM</td><td>central</td><td style='text-align:right'>4.7%</td><td style='text-align:right;color:#dc2626;font-weight:700'>14.94%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+10.24pp</td></tr>
+<tr><td>BHARATIYA NABHIKIYA VIDYUT NIGAM LIMITED</td><td>central</td><td style='text-align:right'>29.86%</td><td style='text-align:right;color:#dc2626;font-weight:700'>39.51%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+9.65pp</td></tr>
+<tr><td>IndianOil||Pipelines||Pipelines HO||Contracts</td><td>central</td><td style='text-align:right'>4.75%</td><td style='text-align:right;color:#dc2626;font-weight:700'>14.0%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+9.25pp</td></tr>
+<tr><td>Indian Institute of Technology Roorkee||Material Management - IIT Roorkee</td><td>central</td><td style='text-align:right'>10.45%</td><td style='text-align:right;color:#dc2626;font-weight:700'>19.69%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+9.24pp</td></tr>
+<tr><td>Northern Coalfields Limited||Kakri Project</td><td>central</td><td style='text-align:right'>27.46%</td><td style='text-align:right;color:#dc2626;font-weight:700'>36.25%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+8.79pp</td></tr>
+<tr><td>Northern Coalfields Limited||Jhingurda Project</td><td>central</td><td style='text-align:right'>11.02%</td><td style='text-align:right;color:#dc2626;font-weight:700'>19.23%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+8.21pp</td></tr>
+<tr><td>WBSRDA||PMGSY WB</td><td>central</td><td style='text-align:right'>5.43%</td><td style='text-align:right;color:#dc2626;font-weight:700'>12.91%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+7.48pp</td></tr>
+<tr><td>Tripura</td><td>state</td><td style='text-align:right'>9.19%</td><td style='text-align:right;color:#dc2626;font-weight:700'>16.5%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+7.31pp</td></tr>
+<tr><td>MOIL Limited</td><td>central</td><td style='text-align:right'>92.92%</td><td style='text-align:right;color:#dc2626;font-weight:700'>100.0%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+7.08pp</td></tr>
+<tr><td>Puducherry UT</td><td>state</td><td style='text-align:right'>13.7%</td><td style='text-align:right;color:#dc2626;font-weight:700'>20.09%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+6.39pp</td></tr>
+<tr><td>Eastern Coalfields Limited||ECL_Satgram area</td><td>central</td><td style='text-align:right'>7.46%</td><td style='text-align:right;color:#dc2626;font-weight:700'>13.32%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+5.86pp</td></tr>
+<tr><td>Indian Space Research Organisation||UR Rao Satellite Centre Bengaluru</td><td>central</td><td style='text-align:right'>92.36%</td><td style='text-align:right;color:#dc2626;font-weight:700'>97.73%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+5.37pp</td></tr>
+<tr><td>The Fertilisers And Chemicals Travancore Ltd.||Head Office - FACT||Corporate materials - FACT</td><td>central</td><td style='text-align:right'>1.34%</td><td style='text-align:right;color:#dc2626;font-weight:700'>6.56%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+5.22pp</td></tr>
+<tr><td>Western Coalfields Limited||Wani||Wani_Civil</td><td>central</td><td style='text-align:right'>2.08%</td><td style='text-align:right;color:#dc2626;font-weight:700'>7.2%</td><td style='text-align:right;color:#dc2626;font-weight:700'>+5.12pp</td></tr>
+</tbody>
+</table>
+
+<div class="alert">
+<strong>BHEL Bhopal:</strong> The single most-dramatic deterioration in the dataset. Single-bid share rose from 32.87% to 89.77% in 6 years (+57 pp). On 30,938 contracts, this means roughly 17,000 additional contracts went to single bidders. Either the procurement system has structurally collapsed, or there is a major shift in vendor pool.
+</div>
+
+<div class="alert">
+<strong>CPCL (Chennai Petroleum):</strong> Single-bid share deteriorated +31 pp. Smaller sample (475 contracts) but the trend direction is sharp.
+</div>
+
+<div class="highlight">
+<strong>BHARATIYA NABHIKIYA VIDYUT NIGAM (Nuclear):</strong> Single-bid 30% → 40% AND threshold-engineering at 21.9% (highest among top-25 composite risk orgs). Nuclear PSU with structural procurement deterioration.
+</div>
+
+<h2><span class="num">5</span>Cross-Portal Vendor Networks</h2>
+
+<div class="card">
+<p>Vendors winning contracts across BOTH Central government AND State governments simultaneously (with broad reach) are unusually positioned. Legitimate diversified contractors (L&T, BEML, BHEL) appear here. Less-legitimate patterns include:</p>
+<ul>
+<li>Single proprietors (proprietorship firms) winning 200+ contracts across 20+ departments — possible related-entity network</li>
+<li>Same company appearing under slightly-different name spellings (e.g. "Larsen and Toubro Limited" + "LARSEN AND TOUBRO LIMITED") — possible shell registration</li>
+<li>Construction-firm generic names (RAJ CONSTRUCTION, OM CONSTRUCTION) appearing in 500+ contracts across many departments — possible related-entity network</li>
+</ul>
+</div>
+
+<table>
+<thead><tr>
+<th>Vendor</th>
+<th style="text-align:right">State orgs</th>
+<th style="text-align:right">Central orgs</th>
+<th style="text-align:right">Total contracts</th>
+<th style="text-align:right">Total value</th>
+<th style="text-align:right">Years active</th>
+</tr></thead>
+<tbody>
+<tr><td>Larsen and Toubro Limited</td><td style='text-align:right'>6</td><td style='text-align:right'>125</td><td style='text-align:right'>718</td><td style='text-align:right'>₹421,241,494,411</td><td style='text-align:right'>14 yrs</td></tr>
+<tr><td>LARSEN AND TOUBRO LIMITED</td><td style='text-align:right'>6</td><td style='text-align:right'>42</td><td style='text-align:right'>400</td><td style='text-align:right'>₹210,229,101,436</td><td style='text-align:right'>14 yrs</td></tr>
+<tr><td>INDIAN OIL CORPORATION LIMITED</td><td style='text-align:right'>6</td><td style='text-align:right'>28</td><td style='text-align:right'>108</td><td style='text-align:right'>₹18,446,620,810</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>VOLTAS LIMITED</td><td style='text-align:right'>6</td><td style='text-align:right'>77</td><td style='text-align:right'>307</td><td style='text-align:right'>₹9,803,875,888</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>FLOWMORE LIMITED</td><td style='text-align:right'>5</td><td style='text-align:right'>52</td><td style='text-align:right'>215</td><td style='text-align:right'>₹6,663,277,256</td><td style='text-align:right'>14 yrs</td></tr>
+<tr><td>MANOJ KUMAR SINGH</td><td style='text-align:right'>5</td><td style='text-align:right'>15</td><td style='text-align:right'>390</td><td style='text-align:right'>₹5,233,108,085</td><td style='text-align:right'>16 yrs</td></tr>
+<tr><td>NATIONAL INSURANCE COMPANY LIMITED</td><td style='text-align:right'>8</td><td style='text-align:right'>13</td><td style='text-align:right'>65</td><td style='text-align:right'>₹5,136,613,385</td><td style='text-align:right'>10 yrs</td></tr>
+<tr><td>RAJ CONSTRUCTION</td><td style='text-align:right'>8</td><td style='text-align:right'>23</td><td style='text-align:right'>784</td><td style='text-align:right'>₹4,885,191,280</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>ASHOK KUMAR</td><td style='text-align:right'>9</td><td style='text-align:right'>28</td><td style='text-align:right'>250</td><td style='text-align:right'>₹4,767,027,220</td><td style='text-align:right'>14 yrs</td></tr>
+<tr><td>OM CONSTRUCTION</td><td style='text-align:right'>6</td><td style='text-align:right'>8</td><td style='text-align:right'>602</td><td style='text-align:right'>₹4,441,624,588</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>SANJAY KUMAR</td><td style='text-align:right'>8</td><td style='text-align:right'>26</td><td style='text-align:right'>394</td><td style='text-align:right'>₹4,193,029,467</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>R K CONSTRUCTION</td><td style='text-align:right'>5</td><td style='text-align:right'>34</td><td style='text-align:right'>528</td><td style='text-align:right'>₹4,148,144,891</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>R K ENTERPRISES</td><td style='text-align:right'>7</td><td style='text-align:right'>31</td><td style='text-align:right'>315</td><td style='text-align:right'>₹3,712,206,868</td><td style='text-align:right'>14 yrs</td></tr>
+<tr><td>PAWAN KUMAR</td><td style='text-align:right'>9</td><td style='text-align:right'>21</td><td style='text-align:right'>301</td><td style='text-align:right'>₹3,548,091,529</td><td style='text-align:right'>12 yrs</td></tr>
+<tr><td>DEV CONSTRUCTION</td><td style='text-align:right'>6</td><td style='text-align:right'>14</td><td style='text-align:right'>234</td><td style='text-align:right'>₹3,171,571,171</td><td style='text-align:right'>14 yrs</td></tr>
+<tr><td>BALAJI CONSTRUCTION</td><td style='text-align:right'>7</td><td style='text-align:right'>7</td><td style='text-align:right'>396</td><td style='text-align:right'>₹3,102,218,622</td><td style='text-align:right'>12 yrs</td></tr>
+<tr><td>BALAJI ENTERPRISES</td><td style='text-align:right'>7</td><td style='text-align:right'>47</td><td style='text-align:right'>723</td><td style='text-align:right'>₹2,748,197,393</td><td style='text-align:right'>14 yrs</td></tr>
+<tr><td>KRISHNA ENTERPRISES</td><td style='text-align:right'>10</td><td style='text-align:right'>39</td><td style='text-align:right'>480</td><td style='text-align:right'>₹2,707,086,689</td><td style='text-align:right'>14 yrs</td></tr>
+<tr><td>KENDRIYA BHANDAR</td><td style='text-align:right'>6</td><td style='text-align:right'>6</td><td style='text-align:right'>111</td><td style='text-align:right'>₹2,641,715,879</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>BHARAT SANCHAR NIGAM LIMITED</td><td style='text-align:right'>5</td><td style='text-align:right'>18</td><td style='text-align:right'>50</td><td style='text-align:right'>₹2,542,259,303</td><td style='text-align:right'>9 yrs</td></tr>
+<tr><td>S P CONSTRUCTION</td><td style='text-align:right'>5</td><td style='text-align:right'>5</td><td style='text-align:right'>151</td><td style='text-align:right'>₹2,335,448,195</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>S K CONSTRUCTION</td><td style='text-align:right'>6</td><td style='text-align:right'>11</td><td style='text-align:right'>374</td><td style='text-align:right'>₹2,323,397,808</td><td style='text-align:right'>10 yrs</td></tr>
+<tr><td>S S BUILDERS</td><td style='text-align:right'>5</td><td style='text-align:right'>25</td><td style='text-align:right'>117</td><td style='text-align:right'>₹2,277,351,829</td><td style='text-align:right'>14 yrs</td></tr>
+<tr><td>SATISH KUMAR</td><td style='text-align:right'>6</td><td style='text-align:right'>9</td><td style='text-align:right'>157</td><td style='text-align:right'>₹2,124,841,697</td><td style='text-align:right'>11 yrs</td></tr>
+<tr><td>Indian Oil Corporation Limited</td><td style='text-align:right'>6</td><td style='text-align:right'>14</td><td style='text-align:right'>57</td><td style='text-align:right'>₹2,040,602,374</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>KRISHNA CONSTRUCTION</td><td style='text-align:right'>6</td><td style='text-align:right'>8</td><td style='text-align:right'>494</td><td style='text-align:right'>₹1,917,737,854</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>SAI ENTERPRISES</td><td style='text-align:right'>9</td><td style='text-align:right'>13</td><td style='text-align:right'>294</td><td style='text-align:right'>₹1,902,765,668</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>SHIVAM CONSTRUCTION</td><td style='text-align:right'>6</td><td style='text-align:right'>8</td><td style='text-align:right'>253</td><td style='text-align:right'>₹1,882,412,318</td><td style='text-align:right'>14 yrs</td></tr>
+<tr><td>S K ENTERPRISES</td><td style='text-align:right'>7</td><td style='text-align:right'>39</td><td style='text-align:right'>930</td><td style='text-align:right'>₹1,874,966,649</td><td style='text-align:right'>13 yrs</td></tr>
+<tr><td>VIVEK CONSTRUCTION</td><td style='text-align:right'>5</td><td style='text-align:right'>5</td><td style='text-align:right'>111</td><td style='text-align:right'>₹1,861,777,883</td><td style='text-align:right'>12 yrs</td></tr>
+</tbody>
+</table>
+
+<div class="highlight">
+<strong>Notable individual proprietors winning 200+ contracts:</strong> MANOJ KUMAR SINGH (390 contracts, 20 depts), ASHOK KUMAR (250, 37 depts), SANJAY KUMAR (394, 34 depts), PAWAN KUMAR (301, 30 depts), SATISH KUMAR (157, 15 depts). Cross-referencing these names against MCA company master data would reveal if they are related entities.
+</div>
+
+<h2><span class="num">6</span>HHI Vendor Concentration — Top Departments</h2>
+
+<div class="card">
+<p>The Herfindahl-Hirschman Index measures vendor concentration. Range 0-1; values above 0.25 indicate one vendor dominates (>50% market share). Departments below this often have structural single-vendor pools (defence electronics, regional ASI offices, coal mining areas).</p>
+</div>
+
+<table>
+<thead><tr>
+<th>Organisation</th><th>Portal</th>
+<th style="text-align:right">Contracts</th>
+<th style="text-align:right">HHI</th>
+<th style="text-align:right">Top vendor share</th>
+<th>Top vendor</th>
+</tr></thead>
+<tbody>
+<tr><td>Indian Statistical Institute - Kolkata||Head Office - ISICAL||Engineering Unit - ISICAL</td><td>central</td><td style='text-align:right'>109</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.3814</td><td style='text-align:right'>60.55%</td><td>P.CON,M S ROY CONSTRUCTION,UJJWAL KUMAR CHAKARABORTY,MANIK SARKAR</td></tr>
+<tr><td>Bharat Coking Coal Limited||BCCL_KUSUNDA AREA||EnM</td><td>central</td><td style='text-align:right'>386</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.3016</td><td style='text-align:right'>50.52%</td><td>SHRI DURGA AUTOMOBILES</td></tr>
+<tr><td>IHQ of MoD (Army)-(OSCC)||Eastern Comd-IHQ of MoD (Army)-(OSCC)||CORPS 2-Eastern Comd-IHQ of MoD (Army)-(OSCC)||SUP COY 5-IHQ of MoD (Army)</td><td>central</td><td style='text-align:right'>195</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.2734</td><td style='text-align:right'>35.38%</td><td>Ramniwas Agarwal (HUF)</td></tr>
+<tr><td>IHQ of MoD (Army)||21 CORPS||E DIV</td><td>central</td><td style='text-align:right'>174</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.2494</td><td style='text-align:right'>41.95%</td><td>The English Book and Sty Depot</td></tr>
+<tr><td>Archaeological Survey of India||O/o SA-ASI-Goa Circle-Goa</td><td>central</td><td style='text-align:right'>255</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.2461</td><td style='text-align:right'>35.29%</td><td>Chandrashekar S Yalwar</td></tr>
+<tr><td>Bharat Coking Coal Limited||BCCL_BASTACOLLA AREA||Coal And Sand Transportation</td><td>central</td><td style='text-align:right'>171</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.2237</td><td style='text-align:right'>35.67%</td><td>GTS COAL SALES</td></tr>
+<tr><td>IHQ of MoD (Army)-(OSCC)||MGO BR-IHQ of MoD (Army)-(OSCC)||CENTRAL DEPOTS-MGO BR-IHQ of MoD (Army)-(OSCC)||COD DEHU ROAD-CENTRAL DEPOTS-MGO BR-IHQ of MoD</td><td>central</td><td style='text-align:right'>100</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.2202</td><td style='text-align:right'>46.0%</td><td>BEML LTD</td></tr>
+<tr><td>IHQ of MoD (Army)-(OSCC)||Northern Comd-IHQ of MoD (Army)-(OSCC)||CORPS 3-Northern Comd-IHQ of MoD (Army)-(OSCC)||SUP DEPOT 7-IHQ OF MOD(Army)</td><td>central</td><td style='text-align:right'>109</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.2189</td><td style='text-align:right'>44.04%</td><td>JANDK Dairy Producers Processors and Marketing Cooperative Union Limited,The Milk Producer Cooperative Marketing and Processing Ltd,THE NANDPUR MILK PRODUCERS CO-OPERATIVE UNION LIMITED</td></tr>
+<tr><td>Archaeological Survey of India||O/o SA-ASI-Hyderabad Circle-Hyderabad</td><td>central</td><td style='text-align:right'>111</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1838</td><td style='text-align:right'>36.94%</td><td>Krishna Rao Madugula</td></tr>
+<tr><td>CE-MRRDA||SE-2 NASHIK||EE-Nandurbar</td><td>central</td><td style='text-align:right'>106</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1725</td><td style='text-align:right'>32.08%</td><td>SHIVAM CONSTRUCTION</td></tr>
+<tr><td>Municipal Corporation of Delhi||Engineering - MCD||Electrical and Mechical Engineering / Auto - MCD</td><td>central</td><td style='text-align:right'>124</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1677</td><td style='text-align:right'>37.1%</td><td>Soni Sales &ampamp Service</td></tr>
+<tr><td>Archaeological Survey of India||O/o SA-ASI-Shimla Circle-Shimla</td><td>central</td><td style='text-align:right'>126</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1677</td><td style='text-align:right'>28.57%</td><td>VIJAY KUMAR</td></tr>
+<tr><td>Western Coalfields Limited||Pench||Pench_Mining</td><td>central</td><td style='text-align:right'>665</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1636</td><td style='text-align:right'>34.59%</td><td>SAI SHREE CONSTRUCTION</td></tr>
+<tr><td>The State Trading Corporation of India Ltd||Chennai - STC</td><td>central</td><td style='text-align:right'>136</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1556</td><td style='text-align:right'>19.85%</td><td>RASI NUTRI FOODS</td></tr>
+<tr><td>Bharat Sanchar Nigam Limited||CGMT,UP(WEST) Telecom Circle, Meerut,BSNL||CE(Civil),UP(WEST) Telecom Circle,Meerut,BSNL</td><td>central</td><td style='text-align:right'>136</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1538</td><td style='text-align:right'>35.29%</td><td>M/S AJAY KUMAR CONTRACTOR</td></tr>
+<tr><td>Dte General Border Roads Organisation||HQ CE(P) Beacon(Srinagar) - BRO||760 TF - Beacon(Srinagar) - BRO</td><td>central</td><td style='text-align:right'>147</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1459</td><td style='text-align:right'>33.33%</td><td>Ghumman Distributors Pvt Ltd</td></tr>
+<tr><td>E-IN-C BRANCH - MILITARY ENGINEER SERVICES||ADG (OF and DRDO)  AND CE (R and D) DELHI-  MES||AGE(I) R and D Manali - MES</td><td>central</td><td style='text-align:right'>177</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1451</td><td style='text-align:right'>27.12%</td><td>SP Builders</td></tr>
+<tr><td>E-IN-C BRANCH - MILITARY ENGINEER SERVICES||CE SWC AND CE (AF) GANDHINAGAR - MES||CWE (AF) JODHPUR - MES||AGE (I) (AF) JAIPUR - MES</td><td>central</td><td style='text-align:right'>177</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1442</td><td style='text-align:right'>32.2%</td><td>M.S. ENTERPRISES</td></tr>
+<tr><td>THDC India Ltd./THDC-Tehri/Mechanical (Tehri)</td><td>central</td><td style='text-align:right'>182</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1413</td><td style='text-align:right'>30.77%</td><td>Super India Electric Works</td></tr>
+<tr><td>IHQ of MoD (Army)-(OSCC)||AREA HQ-IHQ of MoD (Army)-(OSCC)||MG and G AREA-AREA HQ-IHQ of MoD (Army)-(OSCC)||SUP DEPOT 6-IHQ OF MOD(Army)</td><td>central</td><td style='text-align:right'>106</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1394</td><td style='text-align:right'>29.25%</td><td>Narain Traders</td></tr>
+<tr><td>IHQ of MoD (Army)-(OSCC)||CIF-IHQ of MoD (Army)-(OSCC)||CIF V-CIF-IHQ of MoD (Army)-(OSCC)||SUP UNIT-IHQ OF MOD(Army)</td><td>central</td><td style='text-align:right'>201</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1362</td><td style='text-align:right'>34.33%</td><td>J and K Dairy Producers, Processors and Marketing Cooperative Union Limited.,The Milk Producer Cooperative Marketing and Processing Ltd</td></tr>
+<tr><td>Archaeological Survey of India||O/o SA-ASI-Bhopal Circle-Bhopal</td><td>central</td><td style='text-align:right'>252</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1294</td><td style='text-align:right'>32.14%</td><td>M/S VIRENDRA KUMAR JAIN</td></tr>
+<tr><td>IHQ of MoD (Army)-(OSCC)||South Western Comd-IHQ of MoD (Army)-(OSCC)||CORPS 2-South Western Comd-IHQ of MoD(Army)-(OSCC)||SUP DEPOT 6-IHQ of MoD (Army)</td><td>central</td><td style='text-align:right'>146</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1266</td><td style='text-align:right'>21.92%</td><td>bagrhi traders</td></tr>
+<tr><td>IHQ of MoD (Army)-(OSCC)||AREA HQ-IHQ of MoD (Army)-(OSCC)||ATNK and K AREA-AREA HQ-IHQ of MoD (Army)-(OSCC)||SUP DEPOT 5-IHQ OF MOD(Army)</td><td>central</td><td style='text-align:right'>264</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1258</td><td style='text-align:right'>31.82%</td><td>Venkys India Limited</td></tr>
+<tr><td>IHQ of MoD (Army)-(OSCC)||Southern Comd-IHQ of MoD (Army)-(OSCC)||CORPS 2-Southern Comd-IHQ of MoD (Army)-(OSCC)||SUP DEPOT 4-IHQ of MoD (Army)</td><td>central</td><td style='text-align:right'>110</td><td style='text-align:right;color:#dc2626;font-weight:700'>0.1253</td><td style='text-align:right'>24.55%</td><td>AR TRADING</td></tr>
+</tbody>
+</table>
+
+<div class="highlight">
+<strong>Caveat:</strong> Many top HHI entries (Army commands, ASI circles, Border Roads) have LEGITIMATE structural reasons for high concentration — qualified-vendor pools, security clearance, specialised equipment. HHI alone is not a corruption indicator; it must combine with other signals.
+</div>
+
+<h2><span class="num">7</span>Methodology and Caveats</h2>
+
+<div class="card">
+<h3>What each signal measures</h3>
+<p><strong>1. Single-bid %</strong> — Share of contracts awarded with only one bidder. World Bank research (Kenny &amp; Musatova, 2020) identifies single-bid as the single strongest statistical corruption indicator. Caveats: structural for PSUs with captive vendor pools.</p>
+
+<p><strong>2. Just-below-threshold engineering</strong> — Share of contracts valued in the band 0-5% above each major Indian audit threshold (50L, 2Cr, 5Cr, 10Cr). Manipulation indicator per CAG audit observations. Caveats: legitimate variance around round thresholds is normal; we look for disproportionate clustering.</p>
+
+<p><strong>3. Round-number %</strong> — Share of contracts valued at exact multiples of ₹1 lakh or larger. Legitimate negotiated values rarely land on exact round numbers; suspicious concentration suggests estimation manipulation.</p>
+
+<p><strong>4. HHI (vendor concentration)</strong> — Herfindahl-Hirschman Index. Sum of squared market shares by vendor. &gt;0.25 = high concentration. Caveats: structural for narrow-vendor-pool departments.</p>
+
+<p><strong>5. Trend direction</strong> — Change in single-bid % between 2018-19 and 2024-25. Catches departments where procurement quality is <em>actively deteriorating</em>.</p>
+</div>
+
+<div class="card">
+<h3>What we cannot conclude from this data alone</h3>
+<ul>
+<li>Individual officer names involved in award decisions (CPPP does not publish decision-maker names)</li>
+<li>Quid-pro-quo / kickback patterns (would require RTI/CAG/CBI cross-reference)</li>
+<li>Shell-company director networks (would require MCA company master data)</li>
+<li>Vendor financial health (would require MCA + GSTIN + bank data)</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>What this analysis <em>can</em> defensibly claim</h3>
+<ul>
+<li>That certain procurement patterns (multi-flag risk) are statistically over-represented at specific organisations</li>
+<li>That these patterns warrant journalistic investigation</li>
+<li>That multi-flag risk combined with deterioration over time is the strongest signal available from public data</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Data limitations</h3>
+<ul>
+<li><strong>Winner addresses</strong> are only 11% populated in CPPP and mostly just city+pincode — limits shell-company clustering to coarse analysis</li>
+<li><strong>Published dates</strong> only 38% populated — limits bid-window × corrigendum intersection analysis</li>
+<li><strong>Contract values</strong> are sometimes "0" — likely rate contracts where final PO value isn't published</li>
+<li><strong>Vendor name spelling</strong> is inconsistent — same company appears under multiple spellings (Larsen and Toubro Limited / LARSEN AND TOUBRO LIMITED) inflating apparent vendor count</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>What to do with this list</h3>
+<p>For the top 10-20 organisations on the composite risk list, the recommended follow-up workflow is:</p>
+<ol>
+<li>Pull that organisation's contracts from the public CPPP data</li>
+<li>Cross-reference vendor names against MCA (Ministry of Corporate Affairs) company master to find common directors</li>
+<li>Search CBI / state ACB press releases for any existing cases involving those vendors or organisations</li>
+<li>File RTI applications for the specific procurement files of the flagged contracts</li>
+<li>Cross-reference with CAG audit paras (annual reports published online)</li>
+</ol>
+<p>The strongest publications will pair a multi-flag statistical finding (this analysis) with one specific adjudicated or RTI-confirmed case — that's how statistical anomaly becomes a story.</p>
+</div>
+
 <div class="footer">
-Generated 2026-06-26 · Dataset: tender.sarthaksidhant.com mirror (SHA-256 verified) · Analysis: local SQLite extraction over 4.5M AoC records.
+Generated 2026-06-28 · Dataset: tender.sarthaksidhant.com mirror (SHA-256 verified ec8ef7711a17b7cae9e0414c2403b119a0a31c4dec49ed7055b38ec0df5f7586) · 4.92M AoC records · 5-signal composite risk model · Sources for indicators: Kenny &amp; Musatova (World Bank 2020), CAG audit observations, CVC procurement guidelines.
 </div>
 
 </div>
